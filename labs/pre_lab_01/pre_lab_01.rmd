@@ -238,8 +238,8 @@ No code here; I want you to provide three questions that this data suggests to y
 
 **Answer**
 
-1.  
+1.  Which class of students are taking each class.
 
-2.  
+2.  Which classes are the longest.
 
-3.  
+3.  Which classes are the fartest from the journalism building.
