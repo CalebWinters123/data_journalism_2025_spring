@@ -139,10 +139,7 @@ umd_courses |>
 
 Describe what you think each line of this code is doing below, based on the result:
 
-**Answer**
-1. Taking UMD courses
-2. grouping them
-3. Spittting them out in a certain order
+**Answer** 1. Taking UMD courses 2. grouping them 3. Spittting them out in a certain order
 
 ### Task 10: Adding arrange to sort the data
 
