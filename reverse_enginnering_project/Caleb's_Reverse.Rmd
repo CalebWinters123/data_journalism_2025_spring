@@ -3,6 +3,13 @@ title: "Caleb's Comic Book Data Project"
 output: html_notebook
 ---
 
+Before anything, let's load are libraries. We'll need three:
+```{r}
+library(tidyverse)
+library(lubridate)
+library(janitor)
+```
+
 Both data sets from the article can be found below. Go ahead and click play to receive them.
 
 ```{r}
@@ -17,8 +24,24 @@ Marvel_data <- Marvel_data |> clean_names()
 DC_data <- DC_data |> clean_names()
 ```
 
+Now that they're both cleaned up, let's take a glimpse at both datasets.
 
-Q1: How many charterers does Marvel Comics have? How many does DC Comics have? Find the number of women charterers that each company has.
+```{r}
+glimpse(Marvel_data)
+glimpse(DC_data)
+```
+
+
+Q1: How many charterers does Marvel Comics have? How many does DC Comics have? Find the number of women characters that each company has.
+
+```{r}
+Marvel_data |> group_by(name) |> summarise(count = n(), total = sum(count))
+DC_data |> group_by(name) |> summarise(count = n(), total = sum(count))
+
+Marvel_data |> group_by(sex) |> summarise(count = n(), total = sum(count)) |> arrange(desc(count))
+DC_data |> group_by(sex) |> summarise(count = n(), total = sum(count)) |> arrange(desc(count))
+```
+A1: Marvel Comics has 16,376 characters in total while DC Comics has 6,896 characters. Marvel Comics has a total of 3,837 female characters while DC Comics has a total of 1967 female characters.
 
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
