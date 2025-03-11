@@ -33,7 +33,7 @@ glimpse(DC_data)
 
 
 Q1: How many charterers does Marvel Comics have? How many does DC Comics have? Find the number of women characters that each company has.
-
+Here:
 ```{r}
 Marvel_data |> group_by(name) |> summarise(count = n(), total = sum(count))
 DC_data |> group_by(name) |> summarise(count = n(), total = sum(count))
