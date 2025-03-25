@@ -33,7 +33,6 @@ glimpse(DC_data)
 
 
 Q1: How many charterers does Marvel Comics have? How many does DC Comics have? Find the number of women characters that each company has.
-Here:
 ```{r}
 Marvel_data |> group_by(name) |> summarise(count = n(), total = sum(count))
 DC_data |> group_by(name) |> summarise(count = n(), total = sum(count))
@@ -43,6 +42,30 @@ DC_data |> group_by(sex) |> summarise(count = n(), total = sum(count)) |> arrang
 ```
 A1: Marvel Comics has 16,376 characters in total while DC Comics has 6,896 characters. Marvel Comics has a total of 3,837 female characters while DC Comics has a total of 1967 female characters.
 
+Great! This is a lot of characters! And through our data analysis, we can see that women are extremely underrepresented in the comic medium. Now, let's show our findings as percentages.
+
+Q2: Find the percentage between Marvel Comics' male characters and female characters. Then do the same for DC Comics' male and female characters.
+
+First, let's make four places to store our values:
+```{r}
+M_males <- 11638
+M_females <- 3837
+M_total_char <- 16376
+DC_males <- 4783
+DC_females <-1967
+DC_total_char <- 6896
+```
+
+Then, let's do the math:
+
+```{r}
+M_pct_men = (M_males/M_total_char)*100
+M_pct_females = (M_females/M_total_char)*100
+DC_pct_men = (DC_males/DC_total_char)*100
+DC_pct_female = (DC_females/DC_total_char)*100
+```
+
+A2: In percentages, Marvel Comics has 71% male characters and 23% female characters. DC Comics has 69% males and 28% females.
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
 
