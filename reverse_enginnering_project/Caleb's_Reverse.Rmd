@@ -4,6 +4,7 @@ output: html_notebook
 ---
 
 Before anything, let's load are libraries. We'll need three:
+
 ```{r}
 library(tidyverse)
 library(lubridate)
@@ -31,8 +32,8 @@ glimpse(Marvel_data)
 glimpse(DC_data)
 ```
 
-
 Q1: How many charterers does Marvel Comics have? How many does DC Comics have? Find the number of women characters that each company has.
+
 ```{r}
 Marvel_data |> group_by(name) |> summarise(count = n(), total = sum(count))
 DC_data |> group_by(name) |> summarise(count = n(), total = sum(count))
@@ -40,6 +41,7 @@ DC_data |> group_by(name) |> summarise(count = n(), total = sum(count))
 Marvel_data |> group_by(sex) |> summarise(count = n(), total = sum(count)) |> arrange(desc(count))
 DC_data |> group_by(sex) |> summarise(count = n(), total = sum(count)) |> arrange(desc(count))
 ```
+
 A1: Marvel Comics has 16,376 characters in total while DC Comics has 6,896 characters. Marvel Comics has a total of 3,837 female characters while DC Comics has a total of 1967 female characters.
 
 Great! This is a lot of characters! And through our data analysis, we can see that women are extremely underrepresented in the comic medium. Now, let's show our findings as percentages.
@@ -47,6 +49,7 @@ Great! This is a lot of characters! And through our data analysis, we can see th
 Q2: Find the percentage between Marvel Comics' male characters and female characters. Then do the same for DC Comics' male and female characters.
 
 First, let's make four places to store our values:
+
 ```{r}
 M_males <- 11638
 M_females <- 3837
@@ -67,8 +70,59 @@ DC_pct_female = (DC_females/DC_total_char)*100
 
 A2: In percentages, Marvel Comics has 71% male characters and 23% female characters. DC Comics has 69% males and 28% females.
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+Interesting statistics! But you know what would make them more interesting...visulaization!
+Let's turn these statistic into a bar graph
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file).
+```{r}
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+```
+
+Q3. Let's find out how many female chacrters are heros compared to villains.
+
+```{r}
+
+```
+
+A3.
+
+
+
+Q4. In what year does the most female combic book chacrters first appear?
+
+```{r}
+
+```
+
+Let turn out finds into a line graph!
+
+```{r}
+
+```
+
+[What does the trend suggest, Caleb?]
+
+
+Q5 Pt1: And just for the fun of it --- which hair color is the most common among female comic book characters?
+
+```{r}
+
+```
+
+A5 Pt1: [Which is the most common]
+
+A5 Pt2: [Is this surprising?] Let's see if the [hair color] has grown in prominence in the last 7 years or if comic book artists are creating a new common hair color
+
+```{r}
+
+```
+
+Now for a little visualization!!
+
+```{r}
+
+```
+
+
+A5 Pt2: 
+
+These are my findings! I hope you enjoyed!
