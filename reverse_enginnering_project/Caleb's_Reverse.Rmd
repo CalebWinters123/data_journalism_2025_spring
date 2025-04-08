@@ -62,67 +62,66 @@ DC_total_char <- 6896
 Then, let's do the math:
 
 ```{r}
-M_pct_men = (M_males/M_total_char)*100
-M_pct_females = (M_females/M_total_char)*100
+M_pct_men = (M_males/M_total_char)*100 
+M_pct_females = (M_females/M_total_char)*100 
 DC_pct_men = (DC_males/DC_total_char)*100
 DC_pct_female = (DC_females/DC_total_char)*100
 ```
 
 A2: In percentages, Marvel Comics has 71% male characters and 23% female characters. DC Comics has 69% males and 28% females.
 
-Interesting statistics! But you know what would make them more interesting...visulaization!
-Let's turn these statistic into a bar graph
+Interesting statistics! But you know what would make them more interesting...visualization! Let's turn these statistic into a bar graph.
 
 ```{r}
-
+M_pct_men |> M_pct_females |> DC_pct_men |> DC_pct_female
+  ggplot() +
+  geom_bar(aes(x=character(), weight=total_calls))
 ```
 
-Q3. Let's find out how many female chacrters are heros compared to villains.
+Q3. Let's find out how many female characters are hero compared to villains.
 
 ```{r}
-
+Marvel_feamle_heroes <- Marvel_data |> filter(sex == "Female Characters" & align == "Good Characters")
+Marvel_feamle_villians <- Marvel_data |> filter(sex == "Female Characters" & align == "Bad Characters")
+DC_feamle_heroes <- DC_data |> filter(sex == "Female Characters" & align == "Good Characters")
+DC_female_villians <- DC_data |> filter(sex == "Female Characters" & align == "Bad Characters")
 ```
 
-A3.
+A3. Marvel Comics has 1,537 characters who are  female heroes or listed a "Good Characters." Marvel Comics has only 976 evil or "Bad Characters" who are female. DC Comics has 935 "Good Characters" that are female and 597 female "Bad Characters."
 
-
-
-Q4. In what year does the most female combic book chacrters first appear?
+Q4. In what year does the most female comic book characters first appear?
 
 ```{r}
-
+Marvel_data |> filter(sex=="Female Characters") |> group_by(first_appearance) |> summarise(count=n()) |> arrange(desc(count))
+DC_data |> filter(sex=="Female Characters") |> group_by(first_appearance) |> summarise(count=n()) |> arrange(desc(count))
 ```
 
-Let turn out finds into a line graph!
+A4: Both in September 2006 and August 2010 Marvel Comics introduced their most female characters: 23. DC Comics introduced their most female characters in September 1996: 18.
+
+Q5: And just for the fun of it --- which hair color is the most common among female comic book characters?
 
 ```{r}
-
+Marvel_data |> filter(sex == "Female Characters") |> group_by(hair) |> summarise(count=n()) |> arrange(desc(count))
 ```
 
-[What does the trend suggest, Caleb?]
-
-
-Q5 Pt1: And just for the fun of it --- which hair color is the most common among female comic book characters?
+A5 Pt1: 1048 female characters have black Hair - the most common hair color for female characters in Marvel Comics. Gold hair is the rarest hair color. Only one female character has it: Blitziana.
 
 ```{r}
-
+Marvel_data |> filter(sex == "Female Characters") |> filter(hair=="Gold Hair")
 ```
 
-A5 Pt1: [Which is the most common]
-
-A5 Pt2: [Is this surprising?] Let's see if the [hair color] has grown in prominence in the last 7 years or if comic book artists are creating a new common hair color
+For DC Comics:
 
 ```{r}
-
+DC_data |> filter(sex == "Female Characters") |> group_by(hair) |> summarise(count=n()) |> arrange(desc(count))
 ```
 
-Now for a little visualization!!
+Black hair is also the most common hair color among female characters: 509. Reddish Brown Hair is the rarest with only one person having it:
 
 ```{r}
-
+DC_data |> filter(sex == "Female Characters") |> filter(hair=="Reddish Brown Hair")
 ```
 
-
-A5 Pt2: 
+Yolanda Montez.
 
 These are my findings! I hope you enjoyed!

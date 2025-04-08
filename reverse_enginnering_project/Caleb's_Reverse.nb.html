@@ -1755,35 +1755,12 @@ display: none;
 <p>Before anything, let’s load are libraries. We’ll need three:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHViR2xpY21GeWVTaDBhV1I1ZG1WeWMyVXBYRzVnWUdBaWZRPT0gLS0+XG5cbmBgYHJcbmxpYnJhcnkodGlkeXZlcnNlKVxuYGBgXG5cbjwhLS0gcm5iLXNvdXJjZS1lbmQgLS0+XG4ifQ== -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
-<pre class="r"><code>library(tidyverse)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoi4pSA4pSAIEF0dGFjaGluZyBjb3JlIHRpZHl2ZXJzZSBwYWNrYWdlcyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlIDIuMC4wIOKUgOKUgFxu4pyUIGRwbHlyICAgICAxLjEuNCAgICAg4pyUIHJlYWRyICAgICAyLjEuNVxu4pyUIGZvcmNhdHMgICAxLjAuMCAgICAg4pyUIHN0cmluZ3IgICAxLjUuMVxu4pyUIGdncGxvdDIgICAzLjUuMSAgICAg4pyUIHRpYmJsZSAgICAzLjIuMVxu4pyUIGx1YnJpZGF0ZSAxLjkuNCAgICAg4pyUIHRpZHlyICAgICAxLjMuMVxu4pyUIHB1cnJyICAgICAxLjAuMiAgICAg4pSA4pSAIENvbmZsaWN0cyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlX2NvbmZsaWN0cygpIOKUgOKUgFxu4pyWIGRwbHlyOjpmaWx0ZXIoKSBtYXNrcyBzdGF0czo6ZmlsdGVyKClcbuKcliBkcGx5cjo6bGFnKCkgICAgbWFza3Mgc3RhdHM6OmxhZygpXG7ihLkgVXNlIHRoZSBcdTAwMWJdODs7aHR0cDovL2NvbmZsaWN0ZWQuci1saWIub3JnL1x1MDAwN2NvbmZsaWN0ZWQgcGFja2FnZVx1MDAxYl04OztcdTAwMDcgdG8gZm9yY2UgYWxsIGNvbmZsaWN0cyB0byBiZWNvbWUgZXJyb3JzXG4ifQ== -->
-<pre><code>── Attaching core tidyverse packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the ]8;;http://conflicted.r-lib.org/conflicted package]8;; to force all conflicts to become errors</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHViR2xpY21GeWVTaHNkV0p5YVdSaGRHVXBYRzVzYVdKeVlYSjVLR3BoYm1sMGIzSXBYRzVnWUdBaWZRPT0gLS0+XG5cbmBgYHJcbmxpYnJhcnkobHVicmlkYXRlKVxubGlicmFyeShqYW5pdG9yKVxuYGBgXG5cbjwhLS0gcm5iLXNvdXJjZS1lbmQgLS0+XG4ifQ== -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShsdWJyaWRhdGUpXG5saWJyYXJ5KGphbml0b3IpXG5gYGAifQ== -->
-<pre class="r"><code>library(lubridate)
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHViR2xpY21GeWVTaDBhV1I1ZG1WeWMyVXBYRzVzYVdKeVlYSjVLR3gxWW5KcFpHRjBaU2xjYm14cFluSmhjbmtvYW1GdWFYUnZjaWxjYm1CZ1lDSjkgLS0+XG5cbmBgYHJcbmxpYnJhcnkodGlkeXZlcnNlKVxubGlicmFyeShsdWJyaWRhdGUpXG5saWJyYXJ5KGphbml0b3IpXG5gYGBcblxuPCEtLSBybmItc291cmNlLWVuZCAtLT5cbiJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KGx1YnJpZGF0ZSlcbmxpYnJhcnkoamFuaXRvcilcbmBgYCJ9 -->
+<pre class="r"><code>library(tidyverse)
+library(lubridate)
 library(janitor)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5BdHRhY2hpbmcgcGFja2FnZTog4oCYamFuaXRvcuKAmVxuXG5UaGUgZm9sbG93aW5nIG9iamVjdHMgYXJlIG1hc2tlZCBmcm9tIOKAmHBhY2thZ2U6c3RhdHPigJk6XG5cbiAgICBjaGlzcS50ZXN0LCBmaXNoZXIudGVzdFxuIn0= -->
-<pre><code>
-Attaching package: ‘janitor’
-
-The following objects are masked from ‘package:stats’:
-
-    chisq.test, fisher.test</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1865,10 +1842,10 @@ DC_total_char &lt;- 6896</code></pre>
 <p>Then, let’s do the math:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVUVjl3WTNSZmJXVnVJRDBnS0UxZmJXRnNaWE12VFY5MGIzUmhiRjlqYUdGeUtTb3hNREJjYmsxZmNHTjBYMlpsYldGc1pYTWdQU0FvVFY5bVpXMWhiR1Z6TDAxZmRHOTBZV3hmWTJoaGNpa3FNVEF3WEc1RVExOXdZM1JmYldWdUlEMGdLRVJEWDIxaGJHVnpMMFJEWDNSdmRHRnNYMk5vWVhJcEtqRXdNRnh1UkVOZmNHTjBYMlpsYldGc1pTQTlJQ2hFUTE5bVpXMWhiR1Z6TDBSRFgzUnZkR0ZzWDJOb1lYSXBLakV3TUZ4dVlHQmdJbjA9IC0tPlxuXG5gYGByXG5NX3BjdF9tZW4gPSAoTV9tYWxlcy9NX3RvdGFsX2NoYXIpKjEwMFxuTV9wY3RfZmVtYWxlcyA9IChNX2ZlbWFsZXMvTV90b3RhbF9jaGFyKSoxMDBcbkRDX3BjdF9tZW4gPSAoRENfbWFsZXMvRENfdG90YWxfY2hhcikqMTAwXG5EQ19wY3RfZmVtYWxlID0gKERDX2ZlbWFsZXMvRENfdG90YWxfY2hhcikqMTAwXG5gYGBcblxuPCEtLSBybmItc291cmNlLWVuZCAtLT5cbiJ9 -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTV9wY3RfbWVuID0gKE1fbWFsZXMvTV90b3RhbF9jaGFyKSoxMDBcbk1fcGN0X2ZlbWFsZXMgPSAoTV9mZW1hbGVzL01fdG90YWxfY2hhcikqMTAwXG5EQ19wY3RfbWVuID0gKERDX21hbGVzL0RDX3RvdGFsX2NoYXIpKjEwMFxuRENfcGN0X2ZlbWFsZSA9IChEQ19mZW1hbGVzL0RDX3RvdGFsX2NoYXIpKjEwMFxuYGBgIn0= -->
-<pre class="r"><code>M_pct_men = (M_males/M_total_char)*100
-M_pct_females = (M_females/M_total_char)*100
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVUVjl3WTNSZmJXVnVJRDBnS0UxZmJXRnNaWE12VFY5MGIzUmhiRjlqYUdGeUtTb3hNREFnWEc1TlgzQmpkRjltWlcxaGJHVnpJRDBnS0UxZlptVnRZV3hsY3k5TlgzUnZkR0ZzWDJOb1lYSXBLakV3TUNCY2JrUkRYM0JqZEY5dFpXNGdQU0FvUkVOZmJXRnNaWE12UkVOZmRHOTBZV3hmWTJoaGNpa3FNVEF3WEc1RVExOXdZM1JmWm1WdFlXeGxJRDBnS0VSRFgyWmxiV0ZzWlhNdlJFTmZkRzkwWVd4ZlkyaGhjaWtxTVRBd1hHNWdZR0FpZlE9PSAtLT5cblxuYGBgclxuTV9wY3RfbWVuID0gKE1fbWFsZXMvTV90b3RhbF9jaGFyKSoxMDAgXG5NX3BjdF9mZW1hbGVzID0gKE1fZmVtYWxlcy9NX3RvdGFsX2NoYXIpKjEwMCBcbkRDX3BjdF9tZW4gPSAoRENfbWFsZXMvRENfdG90YWxfY2hhcikqMTAwXG5EQ19wY3RfZmVtYWxlID0gKERDX2ZlbWFsZXMvRENfdG90YWxfY2hhcikqMTAwXG5gYGBcblxuPCEtLSBybmItc291cmNlLWVuZCAtLT5cbiJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTV9wY3RfbWVuID0gKE1fbWFsZXMvTV90b3RhbF9jaGFyKSoxMDAgXG5NX3BjdF9mZW1hbGVzID0gKE1fZmVtYWxlcy9NX3RvdGFsX2NoYXIpKjEwMCBcbkRDX3BjdF9tZW4gPSAoRENfbWFsZXMvRENfdG90YWxfY2hhcikqMTAwXG5EQ19wY3RfZmVtYWxlID0gKERDX2ZlbWFsZXMvRENfdG90YWxfY2hhcikqMTAwXG5gYGAifQ== -->
+<pre class="r"><code>M_pct_men = (M_males/M_total_char)*100 
+M_pct_females = (M_females/M_total_char)*100 
 DC_pct_men = (DC_males/DC_total_char)*100
 DC_pct_female = (DC_females/DC_total_char)*100</code></pre>
 <!-- rnb-source-end -->
@@ -1878,55 +1855,104 @@ DC_pct_female = (DC_females/DC_total_char)*100</code></pre>
 <p>A2: In percentages, Marvel Comics has 71% male characters and 23%
 female characters. DC Comics has 69% males and 28% females.</p>
 <p>Interesting statistics! But you know what would make them more
-interesting…visulaization! Let’s turn these statistic into a bar
-graph</p>
+interesting…visualization! Let’s turn these statistic into a bar
+graph.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVUVjl3WTNSZmJXVnVMQ0JOWDNCamRGOW1aVzFoYkdWekxDQkVRMTl3WTNSZmJXVnVMQ0JFUTE5d1kzUmZabVZ0WVd4bFhHNWdZR0FpZlE9PSAtLT5cblxuYGBgclxuTV9wY3RfbWVuLCBNX3BjdF9mZW1hbGVzLCBEQ19wY3RfbWVuLCBEQ19wY3RfZmVtYWxlXG5gYGBcblxuPCEtLSBybmItc291cmNlLWVuZCAtLT5cbiJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTV9wY3RfbWVuLCBNX3BjdF9mZW1hbGVzLCBEQ19wY3RfbWVuLCBEQ19wY3RfZmVtYWxlXG5gYGAifQ== -->
+<pre class="r"><code>M_pct_men, M_pct_females, DC_pct_men, DC_pct_female</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3I6IHVuZXhwZWN0ZWQgJywnIGluIFwiTV9wY3RfbWVuLFwiXG4ifQ== -->
+<pre><code>Error: unexpected &#39;,&#39; in &quot;M_pct_men,&quot;</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Q3. Let’s find out how many female chacrters are heros compared to
+<p>Q3. Let’s find out how many female characters are hero compared to
 villains.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVUV0Z5ZG1Wc1gyWmxZVzFzWlY5b1pYSnZaWE1nUEMwZ1RXRnlkbVZzWDJSaGRHRWdmRDRnWm1sc2RHVnlLSE5sZUNBOVBTQmNJa1psYldGc1pTQkRhR0Z5WVdOMFpYSnpYQ0lnSmlCaGJHbG5iaUE5UFNCY0lrZHZiMlFnUTJoaGNtRmpkR1Z5YzF3aUtWeHVUV0Z5ZG1Wc1gyWmxZVzFzWlY5MmFXeHNhV0Z1Y3lBOExTQk5ZWEoyWld4ZlpHRjBZU0I4UGlCbWFXeDBaWElvYzJWNElEMDlJRndpUm1WdFlXeGxJRU5vWVhKaFkzUmxjbk5jSWlBbUlHRnNhV2R1SUQwOUlGd2lRbUZrSUVOb1lYSmhZM1JsY25OY0lpbGNia1JEWDJabFlXMXNaVjlvWlhKdlpYTWdQQzBnUkVOZlpHRjBZU0I4UGlCbWFXeDBaWElvYzJWNElEMDlJRndpUm1WdFlXeGxJRU5vWVhKaFkzUmxjbk5jSWlBbUlHRnNhV2R1SUQwOUlGd2lSMjl2WkNCRGFHRnlZV04wWlhKelhDSXBYRzVFUTE5bVpXMWhiR1ZmZG1sc2JHbGhibk1nUEMwZ1JFTmZaR0YwWVNCOFBpQm1hV3gwWlhJb2MyVjRJRDA5SUZ3aVJtVnRZV3hsSUVOb1lYSmhZM1JsY25OY0lpQW1JR0ZzYVdkdUlEMDlJRndpUW1Ga0lFTm9ZWEpoWTNSbGNuTmNJaWxjYmx4dVhHNWdZR0FpZlE9PSAtLT5cblxuYGBgclxuTWFydmVsX2ZlYW1sZV9oZXJvZXMgPC0gTWFydmVsX2RhdGEgfD4gZmlsdGVyKHNleCA9PSBcIkZlbWFsZSBDaGFyYWN0ZXJzXCIgJiBhbGlnbiA9PSBcIkdvb2QgQ2hhcmFjdGVyc1wiKVxuTWFydmVsX2ZlYW1sZV92aWxsaWFucyA8LSBNYXJ2ZWxfZGF0YSB8PiBmaWx0ZXIoc2V4ID09IFwiRmVtYWxlIENoYXJhY3RlcnNcIiAmIGFsaWduID09IFwiQmFkIENoYXJhY3RlcnNcIilcbkRDX2ZlYW1sZV9oZXJvZXMgPC0gRENfZGF0YSB8PiBmaWx0ZXIoc2V4ID09IFwiRmVtYWxlIENoYXJhY3RlcnNcIiAmIGFsaWduID09IFwiR29vZCBDaGFyYWN0ZXJzXCIpXG5EQ19mZW1hbGVfdmlsbGlhbnMgPC0gRENfZGF0YSB8PiBmaWx0ZXIoc2V4ID09IFwiRmVtYWxlIENoYXJhY3RlcnNcIiAmIGFsaWduID09IFwiQmFkIENoYXJhY3RlcnNcIilcblxuXG5gYGBcblxuPCEtLSBybmItc291cmNlLWVuZCAtLT5cbiJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTWFydmVsX2ZlYW1sZV9oZXJvZXMgPC0gTWFydmVsX2RhdGEgfD4gZmlsdGVyKHNleCA9PSBcIkZlbWFsZSBDaGFyYWN0ZXJzXCIgJiBhbGlnbiA9PSBcIkdvb2QgQ2hhcmFjdGVyc1wiKVxuTWFydmVsX2ZlYW1sZV92aWxsaWFucyA8LSBNYXJ2ZWxfZGF0YSB8PiBmaWx0ZXIoc2V4ID09IFwiRmVtYWxlIENoYXJhY3RlcnNcIiAmIGFsaWduID09IFwiQmFkIENoYXJhY3RlcnNcIilcbkRDX2ZlYW1sZV9oZXJvZXMgPC0gRENfZGF0YSB8PiBmaWx0ZXIoc2V4ID09IFwiRmVtYWxlIENoYXJhY3RlcnNcIiAmIGFsaWduID09IFwiR29vZCBDaGFyYWN0ZXJzXCIpXG5EQ19mZW1hbGVfdmlsbGlhbnMgPC0gRENfZGF0YSB8PiBmaWx0ZXIoc2V4ID09IFwiRmVtYWxlIENoYXJhY3RlcnNcIiAmIGFsaWduID09IFwiQmFkIENoYXJhY3RlcnNcIilcblxuXG5gYGAifQ== -->
+<pre class="r"><code>Marvel_feamle_heroes &lt;- Marvel_data |&gt; filter(sex == &quot;Female Characters&quot; &amp; align == &quot;Good Characters&quot;)
+Marvel_feamle_villians &lt;- Marvel_data |&gt; filter(sex == &quot;Female Characters&quot; &amp; align == &quot;Bad Characters&quot;)
+DC_feamle_heroes &lt;- DC_data |&gt; filter(sex == &quot;Female Characters&quot; &amp; align == &quot;Good Characters&quot;)
+DC_female_villians &lt;- DC_data |&gt; filter(sex == &quot;Female Characters&quot; &amp; align == &quot;Bad Characters&quot;)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>A3.</p>
-<p>Q4. In what year does the most female combic book chacrters first
+<p>A3. Marvel Comics has 1,537 characters who are female heroes or
+listed a “Good Characters.” Marvel Comics has only 976 evil or “Bad
+Characters” who are female. DC Comics has 935 “Good Characters” that are
+female and 597 female “Bad Characters.”</p>
+<p>Q4. In what year does the most female comic book characters first
 appear?</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVUV0Z5ZG1Wc1gyUmhkR0VnZkQ0Z1ptbHNkR1Z5S0hObGVEMDlYQ0pHWlcxaGJHVWdRMmhoY21GamRHVnljMXdpS1NCOFBpQm5jbTkxY0Y5aWVTaG1hWEp6ZEY5aGNIQmxZWEpoYm1ObEtTQjhQaUJ6ZFcxdFlYSnBjMlVvWTI5MWJuUTliaWdwS1NCOFBpQmhjbkpoYm1kbEtHUmxjMk1vWTI5MWJuUXBLVnh1UkVOZlpHRjBZU0I4UGlCbWFXeDBaWElvYzJWNFBUMWNJa1psYldGc1pTQkRhR0Z5WVdOMFpYSnpYQ0lwSUh3K0lHZHliM1Z3WDJKNUtHWnBjbk4wWDJGd2NHVmhjbUZ1WTJVcElIdytJSE4xYlcxaGNtbHpaU2hqYjNWdWREMXVLQ2twSUh3K0lHRnljbUZ1WjJVb1pHVnpZeWhqYjNWdWRDa3BYRzVnWUdBaWZRPT0gLS0+XG5cbmBgYHJcbk1hcnZlbF9kYXRhIHw+IGZpbHRlcihzZXg9PVwiRmVtYWxlIENoYXJhY3RlcnNcIikgfD4gZ3JvdXBfYnkoZmlyc3RfYXBwZWFyYW5jZSkgfD4gc3VtbWFyaXNlKGNvdW50PW4oKSkgfD4gYXJyYW5nZShkZXNjKGNvdW50KSlcbkRDX2RhdGEgfD4gZmlsdGVyKHNleD09XCJGZW1hbGUgQ2hhcmFjdGVyc1wiKSB8PiBncm91cF9ieShmaXJzdF9hcHBlYXJhbmNlKSB8PiBzdW1tYXJpc2UoY291bnQ9bigpKSB8PiBhcnJhbmdlKGRlc2MoY291bnQpKVxuYGBgXG5cbjwhLS0gcm5iLXNvdXJjZS1lbmQgLS0+XG4ifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTWFydmVsX2RhdGEgfD4gZmlsdGVyKHNleD09XCJGZW1hbGUgQ2hhcmFjdGVyc1wiKSB8PiBncm91cF9ieShmaXJzdF9hcHBlYXJhbmNlKSB8PiBzdW1tYXJpc2UoY291bnQ9bigpKSB8PiBhcnJhbmdlKGRlc2MoY291bnQpKVxuRENfZGF0YSB8PiBmaWx0ZXIoc2V4PT1cIkZlbWFsZSBDaGFyYWN0ZXJzXCIpIHw+IGdyb3VwX2J5KGZpcnN0X2FwcGVhcmFuY2UpIHw+IHN1bW1hcmlzZShjb3VudD1uKCkpIHw+IGFycmFuZ2UoZGVzYyhjb3VudCkpXG5gYGAifQ== -->
+<pre class="r"><code>Marvel_data |&gt; filter(sex==&quot;Female Characters&quot;) |&gt; group_by(first_appearance) |&gt; summarise(count=n()) |&gt; arrange(desc(count))
+DC_data |&gt; filter(sex==&quot;Female Characters&quot;) |&gt; group_by(first_appearance) |&gt; summarise(count=n()) |&gt; arrange(desc(count))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Let turn out finds into a line graph!</p>
+<p>A4: Both in September 2006 and August 2010 Marvel Comics introduced
+their most female characters: 23. DC Comics introduced their most female
+characters in September 1996: 18.</p>
+<p>Q5: And just for the fun of it — which hair color is the most common
+among female comic book characters?</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVUV0Z5ZG1Wc1gyUmhkR0VnZkQ0Z1ptbHNkR1Z5S0hObGVDQTlQU0JjSWtabGJXRnNaU0JEYUdGeVlXTjBaWEp6WENJcElIdytJR2R5YjNWd1gySjVLR2hoYVhJcElIdytJSE4xYlcxaGNtbHpaU2hqYjNWdWREMXVLQ2twSUh3K0lHRnljbUZ1WjJVb1pHVnpZeWhqYjNWdWRDa3BYRzVnWUdBaWZRPT0gLS0+XG5cbmBgYHJcbk1hcnZlbF9kYXRhIHw+IGZpbHRlcihzZXggPT0gXCJGZW1hbGUgQ2hhcmFjdGVyc1wiKSB8PiBncm91cF9ieShoYWlyKSB8PiBzdW1tYXJpc2UoY291bnQ9bigpKSB8PiBhcnJhbmdlKGRlc2MoY291bnQpKVxuYGBgXG5cbjwhLS0gcm5iLXNvdXJjZS1lbmQgLS0+XG4ifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTWFydmVsX2RhdGEgfD4gZmlsdGVyKHNleCA9PSBcIkZlbWFsZSBDaGFyYWN0ZXJzXCIpIHw+IGdyb3VwX2J5KGhhaXIpIHw+IHN1bW1hcmlzZShjb3VudD1uKCkpIHw+IGFycmFuZ2UoZGVzYyhjb3VudCkpXG5gYGAifQ== -->
+<pre class="r"><code>Marvel_data |&gt; filter(sex == &quot;Female Characters&quot;) |&gt; group_by(hair) |&gt; summarise(count=n()) |&gt; arrange(desc(count))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>[What does the trend suggest, Caleb?]</p>
-<p>Q5 Pt1: And just for the fun of it — which hair color is the most
-common among female comic book characters?</p>
+<p>A5 Pt1: 1048 female characters have black Hair - the most common hair
+color for female characters in Marvel Comics. Gold hair is the rarest
+hair color. Only one female character has it: Blitziana.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVUV0Z5ZG1Wc1gyUmhkR0VnZkQ0Z1ptbHNkR1Z5S0hObGVDQTlQU0JjSWtabGJXRnNaU0JEYUdGeVlXTjBaWEp6WENJcElIdytJR1pwYkhSbGNpaG9ZV2x5UFQxY0lrZHZiR1FnU0dGcGNsd2lLVnh1WUdCZ0luMD0gLS0+XG5cbmBgYHJcbk1hcnZlbF9kYXRhIHw+IGZpbHRlcihzZXggPT0gXCJGZW1hbGUgQ2hhcmFjdGVyc1wiKSB8PiBmaWx0ZXIoaGFpcj09XCJHb2xkIEhhaXJcIilcbmBgYFxuXG48IS0tIHJuYi1zb3VyY2UtZW5kIC0tPlxuIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTWFydmVsX2RhdGEgfD4gZmlsdGVyKHNleCA9PSBcIkZlbWFsZSBDaGFyYWN0ZXJzXCIpIHw+IGZpbHRlcihoYWlyPT1cIkdvbGQgSGFpclwiKVxuYGBgIn0= -->
+<pre class="r"><code>Marvel_data |&gt; filter(sex == &quot;Female Characters&quot;) |&gt; filter(hair==&quot;Gold Hair&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>A5 Pt1: [Which is the most common]</p>
-<p>A5 Pt2: [Is this surprising?] Let’s see if the [hair color] has grown
-in prominence in the last 7 years or if comic book artists are creating
-a new common hair color</p>
+<p>For DC Comics:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVSRU5mWkdGMFlTQjhQaUJtYVd4MFpYSW9jMlY0SUQwOUlGd2lSbVZ0WVd4bElFTm9ZWEpoWTNSbGNuTmNJaWtnZkQ0Z1ozSnZkWEJmWW5rb2FHRnBjaWtnZkQ0Z2MzVnRiV0Z5YVhObEtHTnZkVzUwUFc0b0tTa2dmRDRnWVhKeVlXNW5aU2hrWlhOaktHTnZkVzUwS1NsY2JtQmdZQ0o5IC0tPlxuXG5gYGByXG5EQ19kYXRhIHw+IGZpbHRlcihzZXggPT0gXCJGZW1hbGUgQ2hhcmFjdGVyc1wiKSB8PiBncm91cF9ieShoYWlyKSB8PiBzdW1tYXJpc2UoY291bnQ9bigpKSB8PiBhcnJhbmdlKGRlc2MoY291bnQpKVxuYGBgXG5cbjwhLS0gcm5iLXNvdXJjZS1lbmQgLS0+XG4ifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuRENfZGF0YSB8PiBmaWx0ZXIoc2V4ID09IFwiRmVtYWxlIENoYXJhY3RlcnNcIikgfD4gZ3JvdXBfYnkoaGFpcikgfD4gc3VtbWFyaXNlKGNvdW50PW4oKSkgfD4gYXJyYW5nZShkZXNjKGNvdW50KSlcbmBgYCJ9 -->
+<pre class="r"><code>DC_data |&gt; filter(sex == &quot;Female Characters&quot;) |&gt; group_by(hair) |&gt; summarise(count=n()) |&gt; arrange(desc(count))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Now for a little visualization!!</p>
+<p>Black hair is also the most common hair color among female
+characters: 509. Reddish Brown Hair is the rarest with only one person
+having it:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVSRU5mWkdGMFlTQjhQaUJtYVd4MFpYSW9jMlY0SUQwOUlGd2lSbVZ0WVd4bElFTm9ZWEpoWTNSbGNuTmNJaWtnZkQ0Z1ptbHNkR1Z5S0doaGFYSTlQVndpVW1Wa1pHbHphQ0JDY205M2JpQklZV2x5WENJcFhHNWdZR0FpZlE9PSAtLT5cblxuYGBgclxuRENfZGF0YSB8PiBmaWx0ZXIoc2V4ID09IFwiRmVtYWxlIENoYXJhY3RlcnNcIikgfD4gZmlsdGVyKGhhaXI9PVwiUmVkZGlzaCBCcm93biBIYWlyXCIpXG5gYGBcblxuPCEtLSBybmItc291cmNlLWVuZCAtLT5cbiJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuRENfZGF0YSB8PiBmaWx0ZXIoc2V4ID09IFwiRmVtYWxlIENoYXJhY3RlcnNcIikgfD4gZmlsdGVyKGhhaXI9PVwiUmVkZGlzaCBCcm93biBIYWlyXCIpXG5gYGAifQ== -->
+<pre class="r"><code>DC_data |&gt; filter(sex == &quot;Female Characters&quot;) |&gt; filter(hair==&quot;Reddish Brown Hair&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>A5 Pt2:</p>
+<p>Yolanda Montez.</p>
 <p>These are my findings! I hope you enjoyed!</p>
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiQ2FsZWIncyBDb21pYyBCb29rIERhdGEgUHJvamVjdCIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKQmVmb3JlIGFueXRoaW5nLCBsZXQncyBsb2FkIGFyZSBsaWJyYXJpZXMuIFdlJ2xsIG5lZWQgdGhyZWU6CgpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkobHVicmlkYXRlKQpsaWJyYXJ5KGphbml0b3IpCmBgYAoKQm90aCBkYXRhIHNldHMgZnJvbSB0aGUgYXJ0aWNsZSBjYW4gYmUgZm91bmQgYmVsb3cuIEdvIGFoZWFkIGFuZCBjbGljayBwbGF5IHRvIHJlY2VpdmUgdGhlbS4KCmBgYHtyfQpNYXJ2ZWxfZGF0YSA8LSByZWFkLmNzdigiZGF0YS9tYXJ2ZWwtd2lraWEtZGF0YS5jc3YiKQpEQ19kYXRhIDwtIHJlYWQuY3N2KCJkYXRhL2RjLXdpa2lhLWRhdGEuY3N2IikKYGBgCgpOb3csIGxldCdzIGNsZWFuIHRoZSBkYXRhIHNldHMsIG1ha2luZyB0aGVtIGVhc2llciB0byByZWFkLgoKYGBge3J9Ck1hcnZlbF9kYXRhIDwtIE1hcnZlbF9kYXRhIHw+IGNsZWFuX25hbWVzKCkKRENfZGF0YSA8LSBEQ19kYXRhIHw+IGNsZWFuX25hbWVzKCkKYGBgCgpOb3cgdGhhdCB0aGV5J3JlIGJvdGggY2xlYW5lZCB1cCwgbGV0J3MgdGFrZSBhIGdsaW1wc2UgYXQgYm90aCBkYXRhc2V0cy4KCmBgYHtyfQpnbGltcHNlKE1hcnZlbF9kYXRhKQpnbGltcHNlKERDX2RhdGEpCmBgYAoKUTE6IEhvdyBtYW55IGNoYXJ0ZXJlcnMgZG9lcyBNYXJ2ZWwgQ29taWNzIGhhdmU/IEhvdyBtYW55IGRvZXMgREMgQ29taWNzIGhhdmU/IEZpbmQgdGhlIG51bWJlciBvZiB3b21lbiBjaGFyYWN0ZXJzIHRoYXQgZWFjaCBjb21wYW55IGhhcy4KCmBgYHtyfQpNYXJ2ZWxfZGF0YSB8PiBncm91cF9ieShuYW1lKSB8PiBzdW1tYXJpc2UoY291bnQgPSBuKCksIHRvdGFsID0gc3VtKGNvdW50KSkKRENfZGF0YSB8PiBncm91cF9ieShuYW1lKSB8PiBzdW1tYXJpc2UoY291bnQgPSBuKCksIHRvdGFsID0gc3VtKGNvdW50KSkKCk1hcnZlbF9kYXRhIHw+IGdyb3VwX2J5KHNleCkgfD4gc3VtbWFyaXNlKGNvdW50ID0gbigpLCB0b3RhbCA9IHN1bShjb3VudCkpIHw+IGFycmFuZ2UoZGVzYyhjb3VudCkpCkRDX2RhdGEgfD4gZ3JvdXBfYnkoc2V4KSB8PiBzdW1tYXJpc2UoY291bnQgPSBuKCksIHRvdGFsID0gc3VtKGNvdW50KSkgfD4gYXJyYW5nZShkZXNjKGNvdW50KSkKYGBgCgpBMTogTWFydmVsIENvbWljcyBoYXMgMTYsMzc2IGNoYXJhY3RlcnMgaW4gdG90YWwgd2hpbGUgREMgQ29taWNzIGhhcyA2LDg5NiBjaGFyYWN0ZXJzLiBNYXJ2ZWwgQ29taWNzIGhhcyBhIHRvdGFsIG9mIDMsODM3IGZlbWFsZSBjaGFyYWN0ZXJzIHdoaWxlIERDIENvbWljcyBoYXMgYSB0b3RhbCBvZiAxOTY3IGZlbWFsZSBjaGFyYWN0ZXJzLgoKR3JlYXQhIFRoaXMgaXMgYSBsb3Qgb2YgY2hhcmFjdGVycyEgQW5kIHRocm91Z2ggb3VyIGRhdGEgYW5hbHlzaXMsIHdlIGNhbiBzZWUgdGhhdCB3b21lbiBhcmUgZXh0cmVtZWx5IHVuZGVycmVwcmVzZW50ZWQgaW4gdGhlIGNvbWljIG1lZGl1bS4gTm93LCBsZXQncyBzaG93IG91ciBmaW5kaW5ncyBhcyBwZXJjZW50YWdlcy4KClEyOiBGaW5kIHRoZSBwZXJjZW50YWdlIGJldHdlZW4gTWFydmVsIENvbWljcycgbWFsZSBjaGFyYWN0ZXJzIGFuZCBmZW1hbGUgY2hhcmFjdGVycy4gVGhlbiBkbyB0aGUgc2FtZSBmb3IgREMgQ29taWNzJyBtYWxlIGFuZCBmZW1hbGUgY2hhcmFjdGVycy4KCkZpcnN0LCBsZXQncyBtYWtlIGZvdXIgcGxhY2VzIHRvIHN0b3JlIG91ciB2YWx1ZXM6CgpgYGB7cn0KTV9tYWxlcyA8LSAxMTYzOApNX2ZlbWFsZXMgPC0gMzgzNwpNX3RvdGFsX2NoYXIgPC0gMTYzNzYKRENfbWFsZXMgPC0gNDc4MwpEQ19mZW1hbGVzIDwtMTk2NwpEQ190b3RhbF9jaGFyIDwtIDY4OTYKYGBgCgpUaGVuLCBsZXQncyBkbyB0aGUgbWF0aDoKCmBgYHtyfQpNX3BjdF9tZW4gPSAoTV9tYWxlcy9NX3RvdGFsX2NoYXIpKjEwMApNX3BjdF9mZW1hbGVzID0gKE1fZmVtYWxlcy9NX3RvdGFsX2NoYXIpKjEwMApEQ19wY3RfbWVuID0gKERDX21hbGVzL0RDX3RvdGFsX2NoYXIpKjEwMApEQ19wY3RfZmVtYWxlID0gKERDX2ZlbWFsZXMvRENfdG90YWxfY2hhcikqMTAwCmBgYAoKQTI6IEluIHBlcmNlbnRhZ2VzLCBNYXJ2ZWwgQ29taWNzIGhhcyA3MSUgbWFsZSBjaGFyYWN0ZXJzIGFuZCAyMyUgZmVtYWxlIGNoYXJhY3RlcnMuIERDIENvbWljcyBoYXMgNjklIG1hbGVzIGFuZCAyOCUgZmVtYWxlcy4KCkludGVyZXN0aW5nIHN0YXRpc3RpY3MhIEJ1dCB5b3Uga25vdyB3aGF0IHdvdWxkIG1ha2UgdGhlbSBtb3JlIGludGVyZXN0aW5nLi4udmlzdWxhaXphdGlvbiEKTGV0J3MgdHVybiB0aGVzZSBzdGF0aXN0aWMgaW50byBhIGJhciBncmFwaAoKYGBge3J9CgpgYGAKClEzLiBMZXQncyBmaW5kIG91dCBob3cgbWFueSBmZW1hbGUgY2hhY3J0ZXJzIGFyZSBoZXJvcyBjb21wYXJlZCB0byB2aWxsYWlucy4KCmBgYHtyfQoKYGBgCgpBMy4KCgoKUTQuIEluIHdoYXQgeWVhciBkb2VzIHRoZSBtb3N0IGZlbWFsZSBjb21iaWMgYm9vayBjaGFjcnRlcnMgZmlyc3QgYXBwZWFyPwoKYGBge3J9CgpgYGAKCkxldCB0dXJuIG91dCBmaW5kcyBpbnRvIGEgbGluZSBncmFwaCEKCmBgYHtyfQoKYGBgCgpbV2hhdCBkb2VzIHRoZSB0cmVuZCBzdWdnZXN0LCBDYWxlYj9dCgoKUTUgUHQxOiBBbmQganVzdCBmb3IgdGhlIGZ1biBvZiBpdCAtLS0gd2hpY2ggaGFpciBjb2xvciBpcyB0aGUgbW9zdCBjb21tb24gYW1vbmcgZmVtYWxlIGNvbWljIGJvb2sgY2hhcmFjdGVycz8KCmBgYHtyfQoKYGBgCgpBNSBQdDE6IFtXaGljaCBpcyB0aGUgbW9zdCBjb21tb25dCgpBNSBQdDI6IFtJcyB0aGlzIHN1cnByaXNpbmc/XSBMZXQncyBzZWUgaWYgdGhlIFtoYWlyIGNvbG9yXSBoYXMgZ3Jvd24gaW4gcHJvbWluZW5jZSBpbiB0aGUgbGFzdCA3IHllYXJzIG9yIGlmIGNvbWljIGJvb2sgYXJ0aXN0cyBhcmUgY3JlYXRpbmcgYSBuZXcgY29tbW9uIGhhaXIgY29sb3IKCmBgYHtyfQoKYGBgCgpOb3cgZm9yIGEgbGl0dGxlIHZpc3VhbGl6YXRpb24hIQoKYGBge3J9CgpgYGAKCgpBNSBQdDI6IAoKVGhlc2UgYXJlIG15IGZpbmRpbmdzISBJIGhvcGUgeW91IGVuam95ZWQh</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiQ2FsZWIncyBDb21pYyBCb29rIERhdGEgUHJvamVjdCIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKQmVmb3JlIGFueXRoaW5nLCBsZXQncyBsb2FkIGFyZSBsaWJyYXJpZXMuIFdlJ2xsIG5lZWQgdGhyZWU6CgpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkobHVicmlkYXRlKQpsaWJyYXJ5KGphbml0b3IpCmBgYAoKQm90aCBkYXRhIHNldHMgZnJvbSB0aGUgYXJ0aWNsZSBjYW4gYmUgZm91bmQgYmVsb3cuIEdvIGFoZWFkIGFuZCBjbGljayBwbGF5IHRvIHJlY2VpdmUgdGhlbS4KCmBgYHtyfQpNYXJ2ZWxfZGF0YSA8LSByZWFkLmNzdigiZGF0YS9tYXJ2ZWwtd2lraWEtZGF0YS5jc3YiKQpEQ19kYXRhIDwtIHJlYWQuY3N2KCJkYXRhL2RjLXdpa2lhLWRhdGEuY3N2IikKYGBgCgpOb3csIGxldCdzIGNsZWFuIHRoZSBkYXRhIHNldHMsIG1ha2luZyB0aGVtIGVhc2llciB0byByZWFkLgoKYGBge3J9Ck1hcnZlbF9kYXRhIDwtIE1hcnZlbF9kYXRhIHw+IGNsZWFuX25hbWVzKCkKRENfZGF0YSA8LSBEQ19kYXRhIHw+IGNsZWFuX25hbWVzKCkKYGBgCgpOb3cgdGhhdCB0aGV5J3JlIGJvdGggY2xlYW5lZCB1cCwgbGV0J3MgdGFrZSBhIGdsaW1wc2UgYXQgYm90aCBkYXRhc2V0cy4KCmBgYHtyfQpnbGltcHNlKE1hcnZlbF9kYXRhKQpnbGltcHNlKERDX2RhdGEpCmBgYAoKUTE6IEhvdyBtYW55IGNoYXJ0ZXJlcnMgZG9lcyBNYXJ2ZWwgQ29taWNzIGhhdmU/IEhvdyBtYW55IGRvZXMgREMgQ29taWNzIGhhdmU/IEZpbmQgdGhlIG51bWJlciBvZiB3b21lbiBjaGFyYWN0ZXJzIHRoYXQgZWFjaCBjb21wYW55IGhhcy4KCmBgYHtyfQpNYXJ2ZWxfZGF0YSB8PiBncm91cF9ieShuYW1lKSB8PiBzdW1tYXJpc2UoY291bnQgPSBuKCksIHRvdGFsID0gc3VtKGNvdW50KSkKRENfZGF0YSB8PiBncm91cF9ieShuYW1lKSB8PiBzdW1tYXJpc2UoY291bnQgPSBuKCksIHRvdGFsID0gc3VtKGNvdW50KSkKCk1hcnZlbF9kYXRhIHw+IGdyb3VwX2J5KHNleCkgfD4gc3VtbWFyaXNlKGNvdW50ID0gbigpLCB0b3RhbCA9IHN1bShjb3VudCkpIHw+IGFycmFuZ2UoZGVzYyhjb3VudCkpCkRDX2RhdGEgfD4gZ3JvdXBfYnkoc2V4KSB8PiBzdW1tYXJpc2UoY291bnQgPSBuKCksIHRvdGFsID0gc3VtKGNvdW50KSkgfD4gYXJyYW5nZShkZXNjKGNvdW50KSkKYGBgCgpBMTogTWFydmVsIENvbWljcyBoYXMgMTYsMzc2IGNoYXJhY3RlcnMgaW4gdG90YWwgd2hpbGUgREMgQ29taWNzIGhhcyA2LDg5NiBjaGFyYWN0ZXJzLiBNYXJ2ZWwgQ29taWNzIGhhcyBhIHRvdGFsIG9mIDMsODM3IGZlbWFsZSBjaGFyYWN0ZXJzIHdoaWxlIERDIENvbWljcyBoYXMgYSB0b3RhbCBvZiAxOTY3IGZlbWFsZSBjaGFyYWN0ZXJzLgoKR3JlYXQhIFRoaXMgaXMgYSBsb3Qgb2YgY2hhcmFjdGVycyEgQW5kIHRocm91Z2ggb3VyIGRhdGEgYW5hbHlzaXMsIHdlIGNhbiBzZWUgdGhhdCB3b21lbiBhcmUgZXh0cmVtZWx5IHVuZGVycmVwcmVzZW50ZWQgaW4gdGhlIGNvbWljIG1lZGl1bS4gTm93LCBsZXQncyBzaG93IG91ciBmaW5kaW5ncyBhcyBwZXJjZW50YWdlcy4KClEyOiBGaW5kIHRoZSBwZXJjZW50YWdlIGJldHdlZW4gTWFydmVsIENvbWljcycgbWFsZSBjaGFyYWN0ZXJzIGFuZCBmZW1hbGUgY2hhcmFjdGVycy4gVGhlbiBkbyB0aGUgc2FtZSBmb3IgREMgQ29taWNzJyBtYWxlIGFuZCBmZW1hbGUgY2hhcmFjdGVycy4KCkZpcnN0LCBsZXQncyBtYWtlIGZvdXIgcGxhY2VzIHRvIHN0b3JlIG91ciB2YWx1ZXM6CgpgYGB7cn0KTV9tYWxlcyA8LSAxMTYzOApNX2ZlbWFsZXMgPC0gMzgzNwpNX3RvdGFsX2NoYXIgPC0gMTYzNzYKRENfbWFsZXMgPC0gNDc4MwpEQ19mZW1hbGVzIDwtMTk2NwpEQ190b3RhbF9jaGFyIDwtIDY4OTYKYGBgCgpUaGVuLCBsZXQncyBkbyB0aGUgbWF0aDoKCmBgYHtyfQpNX3BjdF9tZW4gPSAoTV9tYWxlcy9NX3RvdGFsX2NoYXIpKjEwMCAKTV9wY3RfZmVtYWxlcyA9IChNX2ZlbWFsZXMvTV90b3RhbF9jaGFyKSoxMDAgCkRDX3BjdF9tZW4gPSAoRENfbWFsZXMvRENfdG90YWxfY2hhcikqMTAwCkRDX3BjdF9mZW1hbGUgPSAoRENfZmVtYWxlcy9EQ190b3RhbF9jaGFyKSoxMDAKYGBgCgpBMjogSW4gcGVyY2VudGFnZXMsIE1hcnZlbCBDb21pY3MgaGFzIDcxJSBtYWxlIGNoYXJhY3RlcnMgYW5kIDIzJSBmZW1hbGUgY2hhcmFjdGVycy4gREMgQ29taWNzIGhhcyA2OSUgbWFsZXMgYW5kIDI4JSBmZW1hbGVzLgoKSW50ZXJlc3Rpbmcgc3RhdGlzdGljcyEgQnV0IHlvdSBrbm93IHdoYXQgd291bGQgbWFrZSB0aGVtIG1vcmUgaW50ZXJlc3RpbmcuLi52aXN1YWxpemF0aW9uISBMZXQncyB0dXJuIHRoZXNlIHN0YXRpc3RpYyBpbnRvIGEgYmFyIGdyYXBoLgoKYGBge3J9Ck1fcGN0X21lbiB8PiBNX3BjdF9mZW1hbGVzIHw+IERDX3BjdF9tZW4gfD4gRENfcGN0X2ZlbWFsZQogIGdncGxvdCgpICsKICBnZW9tX2JhcihhZXMoeD1jaGFyYWN0ZXIoKSwgd2VpZ2h0PXRvdGFsX2NhbGxzKSkKYGBgCgpRMy4gTGV0J3MgZmluZCBvdXQgaG93IG1hbnkgZmVtYWxlIGNoYXJhY3RlcnMgYXJlIGhlcm8gY29tcGFyZWQgdG8gdmlsbGFpbnMuCgpgYGB7cn0KTWFydmVsX2ZlYW1sZV9oZXJvZXMgPC0gTWFydmVsX2RhdGEgfD4gZmlsdGVyKHNleCA9PSAiRmVtYWxlIENoYXJhY3RlcnMiICYgYWxpZ24gPT0gIkdvb2QgQ2hhcmFjdGVycyIpCk1hcnZlbF9mZWFtbGVfdmlsbGlhbnMgPC0gTWFydmVsX2RhdGEgfD4gZmlsdGVyKHNleCA9PSAiRmVtYWxlIENoYXJhY3RlcnMiICYgYWxpZ24gPT0gIkJhZCBDaGFyYWN0ZXJzIikKRENfZmVhbWxlX2hlcm9lcyA8LSBEQ19kYXRhIHw+IGZpbHRlcihzZXggPT0gIkZlbWFsZSBDaGFyYWN0ZXJzIiAmIGFsaWduID09ICJHb29kIENoYXJhY3RlcnMiKQpEQ19mZW1hbGVfdmlsbGlhbnMgPC0gRENfZGF0YSB8PiBmaWx0ZXIoc2V4ID09ICJGZW1hbGUgQ2hhcmFjdGVycyIgJiBhbGlnbiA9PSAiQmFkIENoYXJhY3RlcnMiKQpgYGAKCkEzLiBNYXJ2ZWwgQ29taWNzIGhhcyAxLDUzNyBjaGFyYWN0ZXJzIHdobyBhcmUgIGZlbWFsZSBoZXJvZXMgb3IgbGlzdGVkIGEgIkdvb2QgQ2hhcmFjdGVycy4iIE1hcnZlbCBDb21pY3MgaGFzIG9ubHkgOTc2IGV2aWwgb3IgIkJhZCBDaGFyYWN0ZXJzIiB3aG8gYXJlIGZlbWFsZS4gREMgQ29taWNzIGhhcyA5MzUgIkdvb2QgQ2hhcmFjdGVycyIgdGhhdCBhcmUgZmVtYWxlIGFuZCA1OTcgZmVtYWxlICJCYWQgQ2hhcmFjdGVycy4iCgpRNC4gSW4gd2hhdCB5ZWFyIGRvZXMgdGhlIG1vc3QgZmVtYWxlIGNvbWljIGJvb2sgY2hhcmFjdGVycyBmaXJzdCBhcHBlYXI/CgpgYGB7cn0KTWFydmVsX2RhdGEgfD4gZmlsdGVyKHNleD09IkZlbWFsZSBDaGFyYWN0ZXJzIikgfD4gZ3JvdXBfYnkoZmlyc3RfYXBwZWFyYW5jZSkgfD4gc3VtbWFyaXNlKGNvdW50PW4oKSkgfD4gYXJyYW5nZShkZXNjKGNvdW50KSkKRENfZGF0YSB8PiBmaWx0ZXIoc2V4PT0iRmVtYWxlIENoYXJhY3RlcnMiKSB8PiBncm91cF9ieShmaXJzdF9hcHBlYXJhbmNlKSB8PiBzdW1tYXJpc2UoY291bnQ9bigpKSB8PiBhcnJhbmdlKGRlc2MoY291bnQpKQpgYGAKCkE0OiBCb3RoIGluIFNlcHRlbWJlciAyMDA2IGFuZCBBdWd1c3QgMjAxMCBNYXJ2ZWwgQ29taWNzIGludHJvZHVjZWQgdGhlaXIgbW9zdCBmZW1hbGUgY2hhcmFjdGVyczogMjMuIERDIENvbWljcyBpbnRyb2R1Y2VkIHRoZWlyIG1vc3QgZmVtYWxlIGNoYXJhY3RlcnMgaW4gU2VwdGVtYmVyIDE5OTY6IDE4LgoKUTU6IEFuZCBqdXN0IGZvciB0aGUgZnVuIG9mIGl0IC0tLSB3aGljaCBoYWlyIGNvbG9yIGlzIHRoZSBtb3N0IGNvbW1vbiBhbW9uZyBmZW1hbGUgY29taWMgYm9vayBjaGFyYWN0ZXJzPwoKYGBge3J9Ck1hcnZlbF9kYXRhIHw+IGZpbHRlcihzZXggPT0gIkZlbWFsZSBDaGFyYWN0ZXJzIikgfD4gZ3JvdXBfYnkoaGFpcikgfD4gc3VtbWFyaXNlKGNvdW50PW4oKSkgfD4gYXJyYW5nZShkZXNjKGNvdW50KSkKYGBgCgpBNSBQdDE6IDEwNDggZmVtYWxlIGNoYXJhY3RlcnMgaGF2ZSBibGFjayBIYWlyIC0gdGhlIG1vc3QgY29tbW9uIGhhaXIgY29sb3IgZm9yIGZlbWFsZSBjaGFyYWN0ZXJzIGluIE1hcnZlbCBDb21pY3MuIEdvbGQgaGFpciBpcyB0aGUgcmFyZXN0IGhhaXIgY29sb3IuIE9ubHkgb25lIGZlbWFsZSBjaGFyYWN0ZXIgaGFzIGl0OiBCbGl0emlhbmEuCgpgYGB7cn0KTWFydmVsX2RhdGEgfD4gZmlsdGVyKHNleCA9PSAiRmVtYWxlIENoYXJhY3RlcnMiKSB8PiBmaWx0ZXIoaGFpcj09IkdvbGQgSGFpciIpCmBgYAoKRm9yIERDIENvbWljczoKCmBgYHtyfQpEQ19kYXRhIHw+IGZpbHRlcihzZXggPT0gIkZlbWFsZSBDaGFyYWN0ZXJzIikgfD4gZ3JvdXBfYnkoaGFpcikgfD4gc3VtbWFyaXNlKGNvdW50PW4oKSkgfD4gYXJyYW5nZShkZXNjKGNvdW50KSkKYGBgCgpCbGFjayBoYWlyIGlzIGFsc28gdGhlIG1vc3QgY29tbW9uIGhhaXIgY29sb3IgYW1vbmcgZmVtYWxlIGNoYXJhY3RlcnM6IDUwOS4gUmVkZGlzaCBCcm93biBIYWlyIGlzIHRoZSByYXJlc3Qgd2l0aCBvbmx5IG9uZSBwZXJzb24gaGF2aW5nIGl0OgoKYGBge3J9CkRDX2RhdGEgfD4gZmlsdGVyKHNleCA9PSAiRmVtYWxlIENoYXJhY3RlcnMiKSB8PiBmaWx0ZXIoaGFpcj09IlJlZGRpc2ggQnJvd24gSGFpciIpCmBgYAoKWW9sYW5kYSBNb250ZXouCgpUaGVzZSBhcmUgbXkgZmluZGluZ3MhIEkgaG9wZSB5b3UgZW5qb3llZCE=</div>
 
 
 
