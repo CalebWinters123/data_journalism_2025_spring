@@ -25,7 +25,7 @@ Marvel_data <- Marvel_data |> clean_names()
 DC_data <- DC_data |> clean_names()
 ```
 
-Now that they're both cleaned up, let's take a glimpse at both datasets.
+Now that they're both cleaned up, let's take a glimpse at both data sets.
 
 ```{r}
 glimpse(Marvel_data)
@@ -70,14 +70,6 @@ DC_pct_female = (DC_females/DC_total_char)*100
 
 A2: In percentages, Marvel Comics has 71% male characters and 23% female characters. DC Comics has 69% males and 28% females.
 
-Interesting statistics! But you know what would make them more interesting...visualization! Let's turn these statistic into a bar graph.
-
-```{r}
-M_pct_men |> M_pct_females |> DC_pct_men |> DC_pct_female
-  ggplot() +
-  geom_bar(aes(x=character(), weight=total_calls))
-```
-
 Q3. Let's find out how many female characters are hero compared to villains.
 
 ```{r}
@@ -87,7 +79,7 @@ DC_feamle_heroes <- DC_data |> filter(sex == "Female Characters" & align == "Goo
 DC_female_villians <- DC_data |> filter(sex == "Female Characters" & align == "Bad Characters")
 ```
 
-A3. Marvel Comics has 1,537 characters who are  female heroes or listed a "Good Characters." Marvel Comics has only 976 evil or "Bad Characters" who are female. DC Comics has 935 "Good Characters" that are female and 597 female "Bad Characters."
+A3. Marvel Comics has 1,537 characters who are female heroes or listed a "Good Characters." Marvel Comics has only 976 evil or "Bad Characters" who are female. DC Comics has 935 "Good Characters" that are female and 597 female "Bad Characters."
 
 Q4. In what year does the most female comic book characters first appear?
 
