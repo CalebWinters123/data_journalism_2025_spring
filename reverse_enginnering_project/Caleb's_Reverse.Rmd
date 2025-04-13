@@ -93,7 +93,9 @@ A4: Both in September 2006 and August 2010 Marvel Comics introduced their most f
 Q5: And just for the fun of it --- which hair color is the most common among female comic book characters?
 
 ```{r}
-Marvel_data |> filter(sex == "Female Characters") |> group_by(hair) |> summarise(count=n()) |> arrange(desc(count))
+M <- Marvel_data |> filter(sex == "Female Characters") |> group_by(hair) |> summarise(count=n()) |> arrange(desc(count))
+
+write_csv(M, "data/M.csv")
 ```
 
 A5 Pt1: 1048 female characters have black Hair - the most common hair color for female characters in Marvel Comics. Gold hair is the rarest hair color. Only one female character has it: Blitziana.
@@ -105,7 +107,8 @@ Marvel_data |> filter(sex == "Female Characters") |> filter(hair=="Gold Hair")
 For DC Comics:
 
 ```{r}
-DC_data |> filter(sex == "Female Characters") |> group_by(hair) |> summarise(count=n()) |> arrange(desc(count))
+DC <- DC_data |> filter(sex == "Female Characters") |> group_by(hair) |> summarise(count=n()) |> arrange(desc(count))
+write.csv(DC, "data/DC.csv")
 ```
 
 Black hair is also the most common hair color among female characters: 509. Reddish Brown Hair is the rarest with only one person having it:
