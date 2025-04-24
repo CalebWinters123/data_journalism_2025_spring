@@ -1,0 +1,680 @@
+Delivered-To: cwinter3@terpmail.umd.edu
+Received: by 2002:a05:7010:f88b:b0:446:2793:4989 with SMTP id pb11csp1143493mdb;
+        Tue, 22 Apr 2025 13:35:16 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGdvss70oCaIPbQjgiHtPhNBM2R1zq28utD9lGcAm6hW+yr2zR34UxC+c9RuscKq8fQZ5Lj
+X-Received: by 2002:a17:903:2983:b0:224:1781:a947 with SMTP id d9443c01a7336-22c53580c35mr266559775ad.21.1745354116655;
+        Tue, 22 Apr 2025 13:35:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1745354116; cv=none;
+        d=google.com; s=arc-20240605;
+        b=lqRbd0ywgvOVFzTMeenXFqtauuozP4ShCpoFWEQ3AYDV9iAgdw3QDgXPyGd3XO55uI
+         Mj8F7iv6c3zGPvvSzlJP881RLNzB9PN+hc7Rp2vzclXC5Rfa80GxG1YNTQCkg/FZXm8x
+         2sJxcqQLtaeofAy7v0RpBmxXKUqz84wVMP19NSezEnzXR1S0c/czm91t/o+jlIAI7zGw
+         1IwCC0AS4YZQBlx6k7NSosrKIGE0ibie27rrB+2VEarCW/EwY3erO18x9vsrQg1CrNCR
+         INEqfYqYSCWESJP8N6GPuk4MYem8JwTSYUR8mY5ne4dd67J1TRUJ3an8+eQCHcfbe886
+         MBTw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:mime-version:from:date
+         :content-transfer-encoding:dkim-signature;
+        bh=YiWnpf+8ZtMoOH21IXf95ZmvHmJl8T71kk++/w4cysk=;
+        fh=ELCYInGklj7ZAVKAs040/FbLU61CBeiiz54jPKeGf1Y=;
+        b=KVTDAgdSlektY/8jQk9JkrcRCROIGVMorOVWGHcrBkBBprR2mD/AArg7PmyxW/oBRM
+         XpxyBYGIP/M21/aanMaHkDPDamf4O3FB2HXNyjckrpaMzcmNVlqkMNI0+P28QbKCZSWZ
+         kzubmZNMn0tXFmuZUBwoX69bEjm3erh2rMDzLwUMUkjtdToK4ko5urnad4IXLNc+TI0W
+         aVUVPvogThlLHiTQx723+6YhkXH9Q7a1aGfkWFDgmz2AsPETq5rsMI5CpQ9vk8s43h7O
+         4JjAee2V7PoDs5tATcOoaOPQpeCJ8zze4Wx7srL7gFEQ7MLSLTieeZm9H/bJwXZGrNC7
+         JVgQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@govqa.us header.s=s1 header.b=ayqt0m1r;
+       spf=pass (google.com: domain of bounces+8387778-4c7b-cwinter3=terpmail.umd.edu@em9851.govqa.us designates 168.245.107.68 as permitted sender) smtp.mailfrom="bounces+8387778-4c7b-cwinter3=terpmail.umd.edu@em9851.govqa.us";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=govqa.us
+Return-Path: <bounces+8387778-4c7b-cwinter3=terpmail.umd.edu@em9851.govqa.us>
+Received: from o2.sgmail.govqa.us (o2.sgmail.govqa.us. [168.245.107.68])
+        by mx.google.com with ESMTPS id d9443c01a7336-22c50d87235si142114885ad.435.2025.04.22.13.35.16
+        for <cwinter3@terpmail.umd.edu>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 22 Apr 2025 13:35:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+8387778-4c7b-cwinter3=terpmail.umd.edu@em9851.govqa.us designates 168.245.107.68 as permitted sender) client-ip=168.245.107.68;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@govqa.us header.s=s1 header.b=ayqt0m1r;
+       spf=pass (google.com: domain of bounces+8387778-4c7b-cwinter3=terpmail.umd.edu@em9851.govqa.us designates 168.245.107.68 as permitted sender) smtp.mailfrom="bounces+8387778-4c7b-cwinter3=terpmail.umd.edu@em9851.govqa.us";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=govqa.us
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=govqa.us;
+	h=content-transfer-encoding:content-type:from:mime-version:subject:to:
+	cc:content-type:from:subject:to;
+	s=s1; bh=YiWnpf+8ZtMoOH21IXf95ZmvHmJl8T71kk++/w4cysk=;
+	b=ayqt0m1rUdFZ/TWlAqjAhByC8maCMy2tlo6dgNd4wraMvkuAfX1uB7BVvGJ0Nwp91OCY
+	SgJdKXyiYDJ6lskZZC1+CeWFE61IGz6fclPPU5CGqKtK1J+UOSrPEBNfmbZf0XTVoIPZUk
+	agKezwypKRt3SF/7MMqol7X3YJX1q6zIUol0RnV/+2p9Tclcl5WmpEj7cqvDFmjVyJ4VWE
+	3+445aSHPh/SudD4dGMuT2c9+eqpo9+J089zEOSejrLkZXoy3e8eJc55CrRCD6bsq1S+vj
+	2SS2xSpB0KD09Q27ZNyGZ8aNSc6nHJ9Dfky9ppCg0TPB50jF8rfovFQ2phD2fZBQ==
+Received: by recvd-54467f6c5f-d2m72 with SMTP id recvd-54467f6c5f-d2m72-1-6807FD83-C
+	2025-04-22 20:35:15.190042398 +0000 UTC m=+1203990.373454564
+Received: from ODM4Nzc3OA (unknown)
+	by geopod-ismtpd-3 (SG) with HTTP
+	id aNNXlG0lRLKO7LnWTh83Jw
+	Tue, 22 Apr 2025 20:35:15.160 +0000 (UTC)
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=us-ascii
+Date: Tue, 22 Apr 2025 20:35:15 +0000 (UTC)
+From: Prince George's County MD FD <princegeorgescntyfdmd@govqa.us>
+Mime-Version: 1.0
+Message-ID: <aNNXlG0lRLKO7LnWTh83Jw@geopod-ismtpd-3>
+Subject: Fire EMS Records Request :: R000120-022125
+X-SG-EID: 
+ =?us-ascii?Q?u001=2EFtsDJjdRifj6cyUNsdO1JPOJZ89XOgece53DJouFIHHGXve26wl+ZmGPq?=
+ =?us-ascii?Q?5kwca1XrC2V70QRMHGaG6xZ1+EOy3pCnNBZfBQP?=
+ =?us-ascii?Q?Ar0IQzhIh=2FFERfZ8XAVNcOCPJAEWurhRLHkVmJn?=
+ =?us-ascii?Q?zm9gDQfesN2iHdv8G57KD=2F9ibL8uQDN6dUA5Rkp?=
+ =?us-ascii?Q?+dn=2FIvelUu9BkszvDYqMG6antE=2FrC84SEl3+2aS?=
+ =?us-ascii?Q?zvON8m5LI=2FIyOHcmSdphIpTnaHa+hlg9ZeqBXaP?=
+ =?us-ascii?Q?C5RzEG8ZmMn+8jlerBQajef80W0wNvb1WtJBXJh?=
+ =?us-ascii?Q?sBPZBobM=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprAOrvJfireiuS7RI?=
+ =?us-ascii?Q?8CGQSIdXzGobfgpT4gfsPzdpUSHzxBBHN=2F4G8kn?=
+ =?us-ascii?Q?A9vmpFyOqBzYB9anXPWuYli5RdrBIcnQZynbaPn?=
+ =?us-ascii?Q?7W+o59X17Bd4fUquTNDBzUPJhH+VEDhJOUCG62U?=
+ =?us-ascii?Q?8AEQZv2sq5mTA0tXTNCH8OXMoH9Wr4egJC9MpIC?=
+ =?us-ascii?Q?Q=3D=3D?=
+To: "CWinter3@terpmail.umd.edu" <CWinter3@terpmail.umd.edu>
+X-Entity-ID: u001.tSsFxiT1yZJHTo9odGkD8Q==
+
+<html><body><br><br>--- Please respond above this line ---<br><br><div styl=
+e=3D"align: center; padding: 10px; border: 3px solid #808080; border-radius=
+: 5px;">
+<div><strong><span style=3D"color: #000000;"><img alt=3D"" src=3D"https://u=
+ploads.govqa.us/PRINCEGEORGESCNTYFDMD/firesealpgc.png" /></span></strong></=
+div>
+<div><hr />
+<strong><span style=3D"color: #000000;"><br />
+</span></strong></div>
+<div><p style=3D"margin-top: 0px; margin-bottom: 10px;"><span style=3D"font=
+-size: 14px; font-family: Arial;">RE: Fire EMS Records Request of February =
+21, 2025, Reference # R000120-022125</span></p><p style=3D"margin-top: 0px;=
+ margin-bottom: 10px;"><span style=3D"font-size: 14px; font-family: Arial;"=
+>Dear Caleb Winters,</span></p><p style=3D"line-height: 102%;"><span style=
+=3D"color: #363635;">~ There is a signed copy of this added as an attachmen=
+t. ~</span></p><p style=3D"line-height: 102%;"><span style=3D"color: #36363=
+5;">The Prince George&rsquo;s County Fire Department (&ldquo;PGFD) has rece=
+ived your request for information under the Public Information Act (&ldquo;=
+MPIA&rdquo;), Md. Code Ann., Gen. Prov. (&ldquo;GP&rdquo;) &sect; 4-101 <em=
+>et seq</em>. Specifically, you requested:&nbsp;</span></p><p style=3D"line=
+-height: 102%;"><em><span style=3D"color: #363635;">&ldquo;I am requesting:=
+ an electronic copy of 911 call records reporting drug overdoses in Prince =
+George's County &ndash; or a similar document with a different title &ndash=
+; used by your agency. This document might contain, among other information=
+, details of operating procedures for your agency during overdoses.&rdquo;<=
+/span></em></p><p style=3D"line-height: 102%;"><span style=3D"color: #36363=
+5;">Pursuant to the MPIA, Md. Code Ann., Gen. Prov. &sect;4-101 <em>et seq<=
+/em>., the custodian of record, PGFD, has conducted a search of agency reco=
+rds and have authorized me to inform you that your request has been approve=
+d. Additionally, I have reviewed the responsive information to confirm that=
+ the records were complete and responsive to the request and may be release=
+d.</span></p><p style=3D"line-height: 102%;"><span style=3D"color: #363635;=
+">Please utilize the link provided below to access Prince George&rsquo;s Co=
+unty Fire Department current protocols for addressing overdoses.</span></p>=
+<p style=3D"line-height: 102%;"><span style=3D"color: #0070c0;"><a href=3D"=
+https://u8387778.ct.sendgrid.net/ls/click?upn=3Du001.VEsWrlMiJDg0mXafq1mEXX=
+I3upxurIUbXnxFx4GaUqTidVlW3FFkJWD90ouRXNE7BUyT3tXmpoF72et7dRSGNThNgZSoH01AB=
+9H3lxVDKFkF4psTa5OxhPOINeeCZKoQB-2FQK-2BGDvcEdAjdZKsXfxjB4hbSomGJaZsJ9X9bjc=
+Yt0-3DBLZG_yWLjitx6ecfj-2BN-2BPaj8rEu5XK2i9uUxOVJeZ0r-2FmYAgepxETwhimVOt8z9=
+cCxIrpIN9-2FvIxzzRazi3rvQ8OIAiPFTFRZ26I0VsdwULKa6e7C1Ber1it9VfT7VJ-2FFhAxw-=
+2B2JatD3sudDLgPLJDJiTJFifuC3yD13uTTlvFa4gq0eA4cR-2F57O4-2Fg5HMfYyTwsPCo9CoD=
+HBbvABafxXAzCkBLAqdvBKr5RfebimhJV127Wt1oYa9eRHZ4-2FHFfPKHFLM4oc8Ma-2B5Ktk1p=
+6hrIAC30RO1ghCsGoccRuTEBLpcYQWad36Jz0I692hRZWgFxMqifMje2HvXOqDdGK6wIzLXuO0Q=
+uAIKttC9r-2F67ikgu89-2B-2FXi2IF7-2B5jda4XYiqhu-2B1">chrome-extension://efai=
+dnbmnnnibpcajpcglclefindmkaj/https://www.miemss.org/home/Portals/0/Docs/Gui=
+delines_Protocols/MD-Medical-Protocols-2024-Web-20240612.pdf</a></span></p>=
+<p style=3D"line-height: 101%;"><span style=3D"color: #363635;">&nbsp;</spa=
+n></p><p style=3D"line-height: 101%;"><span style=3D"color: #363635;">&nbsp=
+; &nbsp; &nbsp; &nbsp;2024 Data (January to December)</span></p><table bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"682" style=3D"width: =
+511.8pt;">    <tbody>        <tr style=3D"height: 29.35pt;">            <td=
+ valign=3D"bottom" style=3D"background: #dce6f1; height: 29.35pt; width: 67=
+.55pt; padding: 0.75pt 0.75pt 0in; border-top: none; border-right: 1pt soli=
+d; border-bottom: 1pt solid; border-left: none; text-align: left;">        =
+    <p style=3D"line-height: 101%;"><strong><span style=3D"color: #363635; =
+font-size: 10pt; line-height: 101%;">Incident Type</span></strong></p>     =
+       </td>            <td valign=3D"bottom" style=3D"background: #dce6f1;=
+ height: 29.35pt; width: 36.9pt; padding: 0.75pt 0.75pt 0in; border-top: 1p=
+t solid; border-right: 1pt solid; border-bottom: 1pt solid; border-left: no=
+ne; text-align: left;">            <p style=3D"line-height: 101%;"><strong>=
+<span style=3D"color: #363635; font-size: 10pt; line-height: 101%;">January=
+</span></strong></p>            </td>            <td valign=3D"bottom" styl=
+e=3D"background: #dce6f1; height: 29.35pt; width: 42.5pt; padding: 0.75pt 0=
+.75pt 0in; border-top: 1pt solid; border-right: 1pt solid; border-bottom: 1=
+pt solid; border-left: none; text-align: left;">            <p style=3D"lin=
+e-height: 101%;"><strong><span style=3D"color: #363635; font-size: 10pt; li=
+ne-height: 101%;">February</span></strong></p>            </td>            =
+<td valign=3D"bottom" style=3D"background: #dce6f1; height: 29.35pt; width:=
+ 29.85pt; padding: 0.75pt 0.75pt 0in; border-top: 1pt solid; border-right: =
+1pt solid; border-bottom: 1pt solid; border-left: none; text-align: left;">=
+            <p style=3D"line-height: 101%;"><strong><span style=3D"color: #=
+363635; font-size: 10pt; line-height: 101%;">March</span></strong></p>     =
+       </td>            <td valign=3D"bottom" style=3D"background: #dce6f1;=
+ height: 29.35pt; width: 24.45pt; padding: 0.75pt 0.75pt 0in; border-top: 1=
+pt solid; border-right: 1pt solid; border-bottom: 1pt solid; border-left: n=
+one; text-align: left;">            <p style=3D"line-height: 101%;"><strong=
+><span style=3D"color: #363635; font-size: 10pt; line-height: 101%;">April<=
+/span></strong></p>            </td>            <td valign=3D"bottom" style=
+=3D"background: #dce6f1; height: 29.35pt; width: 20.5pt; padding: 0.75pt 0.=
+75pt 0in; border-top: 1pt solid; border-right: 1pt solid; border-bottom: 1p=
+t solid; border-left: none; text-align: left;">            <p style=3D"line=
+-height: 101%;"><strong><span style=3D"color: #363635; font-size: 10pt; lin=
+e-height: 101%;">May</span></strong></p>            </td>            <td va=
+lign=3D"bottom" style=3D"background: #dce6f1; height: 29.35pt; width: 22.3p=
+t; padding: 0.75pt 0.75pt 0in; border-top: 1pt solid; border-right: 1pt sol=
+id; border-bottom: 1pt solid; border-left: none; text-align: left;">       =
+     <p style=3D"line-height: 101%;"><strong><span style=3D"color: #363635;=
+ font-size: 10pt; line-height: 101%;">June</span></strong></p>            <=
+/td>            <td valign=3D"bottom" style=3D"background: #dce6f1; height:=
+ 29.35pt; width: 19.4pt; padding: 0.75pt 0.75pt 0in; border-top: 1pt solid;=
+ border-right: 1pt solid; border-bottom: 1pt solid; border-left: none; text=
+-align: left;">            <p style=3D"line-height: 101%;"><strong><span st=
+yle=3D"color: #363635; font-size: 10pt; line-height: 101%;">July</span></st=
+rong></p>            </td>            <td valign=3D"bottom" style=3D"backgr=
+ound: #dce6f1; height: 29.35pt; width: 34.2pt; padding: 0.75pt 0.75pt 0in; =
+border-top: 1pt solid; border-right: 1pt solid; border-bottom: 1pt solid; b=
+order-left: none; text-align: left;">            <p style=3D"line-height: 1=
+01%;"><strong><span style=3D"color: #363635; font-size: 10pt; line-height: =
+101%;">August</span></strong></p>            </td>            <td valign=3D=
+"bottom" style=3D"background: #dce6f1; height: 29.35pt; width: 49.5pt; padd=
+ing: 0.75pt 0.75pt 0in; border-top: 1pt solid; border-right: 1pt solid; bor=
+der-bottom: 1pt solid; border-left: none; text-align: left;">            <p=
+ style=3D"line-height: 101%;"><strong><span style=3D"color: #363635; font-s=
+ize: 10pt; line-height: 101%;">September</span></strong></p>            </t=
+d>            <td valign=3D"bottom" style=3D"background: #dce6f1; height: 2=
+9.35pt; width: 37.1pt; padding: 0.75pt 0.75pt 0in; border-top: 1pt solid; b=
+order-right: 1pt solid; border-bottom: 1pt solid; border-left: none; text-a=
+lign: left;">            <p style=3D"line-height: 101%;"><strong><span styl=
+e=3D"color: #363635; font-size: 10pt; line-height: 101%;">October</span></s=
+trong></p>            </td>            <td valign=3D"bottom" style=3D"backg=
+round: #dce6f1; height: 29.35pt; width: 47.4pt; padding: 0.75pt 0.75pt 0in;=
+ border-top: 1pt solid; border-right: 1pt solid; border-bottom: 1pt solid; =
+border-left: none; text-align: left;">            <p style=3D"line-height: =
+101%;"><strong><span style=3D"color: #363635; font-size: 10pt; line-height:=
+ 101%;">November</span></strong></p>            </td>            <td valign=
+=3D"bottom" style=3D"background: #dce6f1; height: 29.35pt; width: 46.7pt; p=
+adding: 0.75pt 0.75pt 0in; border-top: 1pt solid; border-right: 1pt solid; =
+border-bottom: 1pt solid; border-left: none; text-align: left;">           =
+ <p style=3D"line-height: 101%;"><strong><span style=3D"color: #363635; fon=
+t-size: 10pt; line-height: 101%;">December</span></strong></p>            <=
+/td>            <td valign=3D"bottom" style=3D"background: #dce6f1; height:=
+ 29.35pt; width: 33.45pt; padding: 0.75pt 0.75pt 0in; border-top: 1pt solid=
+; border-right: 1pt solid; border-bottom: 1pt solid; border-left: none; tex=
+t-align: left;">            <p style=3D"line-height: 101%;"><strong><span s=
+tyle=3D"color: #363635; font-size: 10pt; line-height: 101%;">Grand Total</s=
+pan></strong></p>            </td>        </tr>        <tr style=3D"height:=
+ 15.35pt;">            <td valign=3D"bottom" style=3D"height: 15.35pt; widt=
+h: 67.55pt; padding: 0.75pt 0.75pt 0in; border-top: none; border-right: 1pt=
+ solid; border-bottom: 1pt solid; border-left: 1pt solid; text-align: left;=
+">            <p style=3D"line-height: 101%;"><span style=3D"color: #363635=
+; font-size: 10pt; line-height: 101%;">Overdose</span></p>            </td>=
+            <td valign=3D"bottom" style=3D"height: 15.35pt; width: 36.9pt; =
+padding: 0.75pt 0.75pt 0in; border-top: none; border-right: 1pt solid; bord=
+er-bottom: 1pt solid; border-left: none; text-align: left;">            <p =
+style=3D"line-height: 101%;"><span style=3D"color: #363635; font-size: 10pt=
+; line-height: 101%;">95</span></p>            </td>            <td valign=
+=3D"bottom" style=3D"height: 15.35pt; width: 42.5pt; padding: 0.75pt 0.75pt=
+ 0in; border-top: none; border-right: 1pt solid; border-bottom: 1pt solid; =
+border-left: none; text-align: left;">            <p style=3D"line-height: =
+101%;"><span style=3D"color: #363635; font-size: 10pt; line-height: 101%;">=
+124</span></p>            </td>            <td valign=3D"bottom" style=3D"h=
+eight: 15.35pt; width: 29.85pt; padding: 0.75pt 0.75pt 0in; border-top: non=
+e; border-right: 1pt solid; border-bottom: 1pt solid; border-left: none; te=
+xt-align: left;">            <p style=3D"line-height: 101%;"><span style=3D=
+"color: #363635; font-size: 10pt; line-height: 101%;">109</span></p>       =
+     </td>            <td valign=3D"bottom" style=3D"height: 15.35pt; width=
+: 24.45pt; padding: 0.75pt 0.75pt 0in; border-top: none; border-right: 1pt =
+solid; border-bottom: 1pt solid; border-left: none; text-align: left;">    =
+        <p style=3D"line-height: 101%;"><span style=3D"color: #363635; font=
+-size: 10pt; line-height: 101%;">113</span></p>            </td>           =
+ <td valign=3D"bottom" style=3D"height: 15.35pt; width: 20.5pt; padding: 0.=
+75pt 0.75pt 0in; border-top: none; border-right: 1pt solid; border-bottom: =
+1pt solid; border-left: none; text-align: left;">            <p style=3D"li=
+ne-height: 101%;"><span style=3D"color: #363635; font-size: 10pt; line-heig=
+ht: 101%;">143</span></p>            </td>            <td valign=3D"bottom"=
+ style=3D"height: 15.35pt; width: 22.3pt; padding: 0.75pt 0.75pt 0in; borde=
+r-top: none; border-right: 1pt solid; border-bottom: 1pt solid; border-left=
+: none; text-align: left;">            <p style=3D"line-height: 101%;"><spa=
+n style=3D"color: #363635; font-size: 10pt; line-height: 101%;">101</span><=
+/p>            </td>            <td valign=3D"bottom" style=3D"height: 15.3=
+5pt; width: 19.4pt; padding: 0.75pt 0.75pt 0in; border-top: none; border-ri=
+ght: 1pt solid; border-bottom: 1pt solid; border-left: none; text-align: le=
+ft;">            <p style=3D"line-height: 101%;"><span style=3D"color: #363=
+635; font-size: 10pt; line-height: 101%;">102</span></p>            </td>  =
+          <td valign=3D"bottom" style=3D"height: 15.35pt; width: 34.2pt; pa=
+dding: 0.75pt 0.75pt 0in; border-top: none; border-right: 1pt solid; border=
+-bottom: 1pt solid; border-left: none; text-align: left;">            <p st=
+yle=3D"line-height: 101%;"><span style=3D"color: #363635; font-size: 10pt; =
+line-height: 101%;">103</span></p>            </td>            <td valign=
+=3D"bottom" style=3D"height: 15.35pt; width: 49.5pt; padding: 0.75pt 0.75pt=
+ 0in; border-top: none; border-right: 1pt solid; border-bottom: 1pt solid; =
+border-left: none; text-align: left;">            <p style=3D"line-height: =
+101%;"><span style=3D"color: #363635; font-size: 10pt; line-height: 101%;">=
+101</span></p>            </td>            <td valign=3D"bottom" style=3D"h=
+eight: 15.35pt; width: 37.1pt; padding: 0.75pt 0.75pt 0in; border-top: none=
+; border-right: 1pt solid; border-bottom: 1pt solid; border-left: none; tex=
+t-align: left;">            <p style=3D"line-height: 101%;"><span style=3D"=
+color: #363635; font-size: 10pt; line-height: 101%;">127</span></p>        =
+    </td>            <td valign=3D"bottom" style=3D"height: 15.35pt; width:=
+ 47.4pt; padding: 0.75pt 0.75pt 0in; border-top: none; border-right: 1pt so=
+lid; border-bottom: 1pt solid; border-left: none; text-align: left;">      =
+      <p style=3D"line-height: 101%;"><span style=3D"color: #363635; font-s=
+ize: 10pt; line-height: 101%;">117</span></p>            </td>            <=
+td valign=3D"bottom" style=3D"height: 15.35pt; width: 46.7pt; padding: 0.75=
+pt 0.75pt 0in; border-top: none; border-right: 1pt solid; border-bottom: 1p=
+t solid; border-left: none; text-align: left;">            <p style=3D"line=
+-height: 101%;"><span style=3D"color: #363635; font-size: 10pt; line-height=
+: 101%;">88</span></p>            </td>            <td valign=3D"bottom" st=
+yle=3D"height: 15.35pt; width: 33.45pt; padding: 0.75pt 0.75pt 0in; border-=
+top: none; border-right: 1pt solid; border-bottom: 1pt solid; border-left: =
+none; text-align: left;">            <p style=3D"line-height: 101%;"><span =
+style=3D"color: #363635; font-size: 10pt; line-height: 101%;">1,323</span><=
+/p>            </td>        </tr>        <tr style=3D"height: 15.35pt;">   =
+         <td valign=3D"bottom" style=3D"height: 15.35pt; width: 67.55pt; pa=
+dding: 0.75pt 0.75pt 0in; border-top: none; border-right: 1pt solid; border=
+-bottom: 1pt solid; border-left: 1pt solid; text-align: left;">            =
+<p style=3D"line-height: 101%;"><span style=3D"color: #363635; font-size: 1=
+0pt; line-height: 101%;">Overdose ALS Combined</span></p>            </td> =
+           <td valign=3D"bottom" style=3D"height: 15.35pt; width: 36.9pt; p=
+adding: 0.75pt 0.75pt 0in; border-top: none; border-right: 1pt solid; borde=
+r-bottom: 1pt solid; border-left: none; text-align: left;">            <p s=
+tyle=3D"line-height: 101%;"><span style=3D"color: #363635; font-size: 10pt;=
+ line-height: 101%;">4</span></p>            </td>            <td valign=3D=
+"bottom" style=3D"height: 15.35pt; width: 42.5pt; padding: 0.75pt 0.75pt 0i=
+n; border-top: none; border-right: 1pt solid; border-bottom: 1pt solid; bor=
+der-left: none; text-align: left;">            <p style=3D"line-height: 101=
+%;"><span style=3D"color: #363635; font-size: 10pt; line-height: 101%;">4</=
+span></p>            </td>            <td valign=3D"bottom" style=3D"height=
+: 15.35pt; width: 29.85pt; padding: 0.75pt 0.75pt 0in; border-top: none; bo=
+rder-right: 1pt solid; border-bottom: 1pt solid; border-left: none; text-al=
+ign: left;">            <p style=3D"line-height: 101%;"><span style=3D"colo=
+r: #363635; font-size: 10pt; line-height: 101%;">0</span></p>            </=
+td>            <td valign=3D"bottom" style=3D"height: 15.35pt; width: 24.45=
+pt; padding: 0.75pt 0.75pt 0in; border-top: none; border-right: 1pt solid; =
+border-bottom: 1pt solid; border-left: none; text-align: left;">           =
+ <p style=3D"line-height: 101%;"><span style=3D"color: #363635; font-size: =
+10pt; line-height: 101%;">1</span></p>            </td>            <td vali=
+gn=3D"bottom" style=3D"height: 15.35pt; width: 20.5pt; padding: 0.75pt 0.75=
+pt 0in; border-top: none; border-right: 1pt solid; border-bottom: 1pt solid=
+; border-left: none; text-align: left;">            <p style=3D"line-height=
+: 101%;"><span style=3D"color: #363635; font-size: 10pt; line-height: 101%;=
+">2</span></p>            </td>            <td valign=3D"bottom" style=3D"h=
+eight: 15.35pt; width: 22.3pt; padding: 0.75pt 0.75pt 0in; border-top: none=
+; border-right: 1pt solid; border-bottom: 1pt solid; border-left: none; tex=
+t-align: left;">            <p style=3D"line-height: 101%;"><span style=3D"=
+color: #363635; font-size: 10pt; line-height: 101%;">0</span></p>          =
+  </td>            <td valign=3D"bottom" style=3D"height: 15.35pt; width: 1=
+9.4pt; padding: 0.75pt 0.75pt 0in; border-top: none; border-right: 1pt soli=
+d; border-bottom: 1pt solid; border-left: none; text-align: left;">        =
+    <p style=3D"line-height: 101%;"><span style=3D"color: #363635; font-siz=
+e: 10pt; line-height: 101%;">3</span></p>            </td>            <td v=
+align=3D"bottom" style=3D"height: 15.35pt; width: 34.2pt; padding: 0.75pt 0=
+.75pt 0in; border-top: none; border-right: 1pt solid; border-bottom: 1pt so=
+lid; border-left: none; text-align: left;">            <p style=3D"line-hei=
+ght: 101%;"><span style=3D"color: #363635; font-size: 10pt; line-height: 10=
+1%;">1</span></p>            </td>            <td valign=3D"bottom" style=
+=3D"height: 15.35pt; width: 49.5pt; padding: 0.75pt 0.75pt 0in; border-top:=
+ none; border-right: 1pt solid; border-bottom: 1pt solid; border-left: none=
+; text-align: left;">            <p style=3D"line-height: 101%;"><span styl=
+e=3D"color: #363635; font-size: 10pt; line-height: 101%;">3</span></p>     =
+       </td>            <td valign=3D"bottom" style=3D"height: 15.35pt; wid=
+th: 37.1pt; padding: 0.75pt 0.75pt 0in; border-top: none; border-right: 1pt=
+ solid; border-bottom: 1pt solid; border-left: none; text-align: left;">   =
+         <p style=3D"line-height: 101%;"><span style=3D"color: #363635; fon=
+t-size: 10pt; line-height: 101%;">5</span></p>            </td>            =
+<td valign=3D"bottom" style=3D"height: 15.35pt; width: 47.4pt; padding: 0.7=
+5pt 0.75pt 0in; border-top: none; border-right: 1pt solid; border-bottom: 1=
+pt solid; border-left: none; text-align: left;">            <p style=3D"lin=
+e-height: 101%;"><span style=3D"color: #363635; font-size: 10pt; line-heigh=
+t: 101%;">5</span></p>            </td>            <td valign=3D"bottom" st=
+yle=3D"height: 15.35pt; width: 46.7pt; padding: 0.75pt 0.75pt 0in; border-t=
+op: none; border-right: 1pt solid; border-bottom: 1pt solid; border-left: n=
+one; text-align: left;">            <p style=3D"line-height: 101%;"><span s=
+tyle=3D"color: #363635; font-size: 10pt; line-height: 101%;">3</span></p>  =
+          </td>            <td valign=3D"bottom" style=3D"height: 15.35pt; =
+width: 33.45pt; padding: 0.75pt 0.75pt 0in; border-top: none; border-right:=
+ 1pt solid; border-bottom: 1pt solid; border-left: none; text-align: left;"=
+>            <p style=3D"line-height: 101%;"><span style=3D"color: #363635;=
+ font-size: 10pt; line-height: 101%;">31</span></p>            </td>       =
+ </tr>        <tr style=3D"height: 15.35pt;">            <td valign=3D"bott=
+om" style=3D"height: 15.35pt; width: 67.55pt; padding: 0.75pt 0.75pt 0in; b=
+order-top: none; border-right: 1pt solid; border-bottom: 1pt solid; border-=
+left: 1pt solid; text-align: left;">            <p style=3D"line-height: 10=
+1%;"><span style=3D"color: #363635; font-size: 10pt; line-height: 101%;">Ov=
+erdose BLS Combined</span></p>            </td>            <td valign=3D"bo=
+ttom" style=3D"height: 15.35pt; width: 36.9pt; padding: 0.75pt 0.75pt 0in; =
+border-top: none; border-right: 1pt solid; border-bottom: 1pt solid; border=
+-left: none; text-align: left;">            <p style=3D"line-height: 101%;"=
+><span style=3D"color: #363635; font-size: 10pt; line-height: 101%;">1</spa=
+n></p>            </td>            <td valign=3D"bottom" style=3D"height: 1=
+5.35pt; width: 42.5pt; padding: 0.75pt 0.75pt 0in; border-top: none; border=
+-right: 1pt solid; border-bottom: 1pt solid; border-left: none; text-align:=
+ left;">            <p style=3D"line-height: 101%;"><span style=3D"color: #=
+363635; font-size: 10pt; line-height: 101%;">0</span></p>            </td> =
+           <td valign=3D"bottom" style=3D"height: 15.35pt; width: 29.85pt; =
+padding: 0.75pt 0.75pt 0in; border-top: none; border-right: 1pt solid; bord=
+er-bottom: 1pt solid; border-left: none; text-align: left;">            <p =
+style=3D"line-height: 101%;"><span style=3D"color: #363635; font-size: 10pt=
+; line-height: 101%;">0</span></p>            </td>            <td valign=
+=3D"bottom" style=3D"height: 15.35pt; width: 24.45pt; padding: 0.75pt 0.75p=
+t 0in; border-top: none; border-right: 1pt solid; border-bottom: 1pt solid;=
+ border-left: none; text-align: left;">            <p style=3D"line-height:=
+ 101%;"><span style=3D"color: #363635; font-size: 10pt; line-height: 101%;"=
+>1</span></p>            </td>            <td valign=3D"bottom" style=3D"he=
+ight: 15.35pt; width: 20.5pt; padding: 0.75pt 0.75pt 0in; border-top: none;=
+ border-right: 1pt solid; border-bottom: 1pt solid; border-left: none; text=
+-align: left;">            <p style=3D"line-height: 101%;">&nbsp;</p>      =
+      </td>            <td valign=3D"bottom" style=3D"height: 15.35pt; widt=
+h: 22.3pt; padding: 0.75pt 0.75pt 0in; border-top: none; border-right: 1pt =
+solid; border-bottom: 1pt solid; border-left: none; text-align: left;">    =
+        <p style=3D"line-height: 101%;"><span style=3D"color: #363635; font=
+-size: 10pt; line-height: 101%;">1</span></p>            </td>            <=
+td valign=3D"bottom" style=3D"height: 15.35pt; width: 19.4pt; padding: 0.75=
+pt 0.75pt 0in; border-top: none; border-right: 1pt solid; border-bottom: 1p=
+t solid; border-left: none; text-align: left;">            <p style=3D"line=
+-height: 101%;"><span style=3D"color: #363635; font-size: 10pt; line-height=
+: 101%;">0</span></p>            </td>            <td valign=3D"bottom" sty=
+le=3D"height: 15.35pt; width: 34.2pt; padding: 0.75pt 0.75pt 0in; border-to=
+p: none; border-right: 1pt solid; border-bottom: 1pt solid; border-left: no=
+ne; text-align: left;">            <p style=3D"line-height: 101%;"><span st=
+yle=3D"color: #363635; font-size: 10pt; line-height: 101%;">1</span></p>   =
+         </td>            <td valign=3D"bottom" style=3D"height: 15.35pt; w=
+idth: 49.5pt; padding: 0.75pt 0.75pt 0in; border-top: none; border-right: 1=
+pt solid; border-bottom: 1pt solid; border-left: none; text-align: left;"> =
+           <p style=3D"line-height: 101%;"><span style=3D"color: #363635; f=
+ont-size: 10pt; line-height: 101%;">2</span></p>            </td>          =
+  <td valign=3D"bottom" style=3D"height: 15.35pt; width: 37.1pt; padding: 0=
+.75pt 0.75pt 0in; border-top: none; border-right: 1pt solid; border-bottom:=
+ 1pt solid; border-left: none; text-align: left;">            <p style=3D"l=
+ine-height: 101%;"><span style=3D"color: #363635; font-size: 10pt; line-hei=
+ght: 101%;">2</span></p>            </td>            <td valign=3D"bottom" =
+style=3D"height: 15.35pt; width: 47.4pt; padding: 0.75pt 0.75pt 0in; border=
+-top: none; border-right: 1pt solid; border-bottom: 1pt solid; border-left:=
+ none; text-align: left;">            <p style=3D"line-height: 101%;"><span=
+ style=3D"color: #363635; font-size: 10pt; line-height: 101%;">1</span></p>=
+            </td>            <td valign=3D"bottom" style=3D"height: 15.35pt=
+; width: 46.7pt; padding: 0.75pt 0.75pt 0in; border-top: none; border-right=
+: 1pt solid; border-bottom: 1pt solid; border-left: none; text-align: left;=
+">            <p style=3D"line-height: 101%;"><span style=3D"color: #363635=
+; font-size: 10pt; line-height: 101%;">3</span></p>            </td>       =
+     <td valign=3D"bottom" style=3D"height: 15.35pt; width: 33.45pt; paddin=
+g: 0.75pt 0.75pt 0in; border-top: none; border-right: 1pt solid; border-bot=
+tom: 1pt solid; border-left: none; text-align: left;">            <p style=
+=3D"line-height: 101%;"><span style=3D"color: #363635; font-size: 10pt; lin=
+e-height: 101%;">12</span></p>            </td>        </tr>        <tr sty=
+le=3D"height: 15.35pt;">            <td valign=3D"bottom" style=3D"height: =
+15.35pt; width: 67.55pt; padding: 0.75pt 0.75pt 0in; border-top: none; bord=
+er-right: 1pt solid; border-bottom: 1pt solid; border-left: 1pt solid; text=
+-align: left;">            <p style=3D"line-height: 101%;"><span style=3D"c=
+olor: #363635; font-size: 10pt; line-height: 101%;">Overdose Combined</span=
+></p>            </td>            <td valign=3D"bottom" style=3D"height: 15=
+.35pt; width: 36.9pt; padding: 0.75pt 0.75pt 0in; border-top: none; border-=
+right: 1pt solid; border-bottom: 1pt solid; border-left: none; text-align: =
+left;">            <p style=3D"line-height: 101%;"><span style=3D"color: #3=
+63635; font-size: 10pt; line-height: 101%;">1</span></p>            </td>  =
+          <td valign=3D"bottom" style=3D"height: 15.35pt; width: 42.5pt; pa=
+dding: 0.75pt 0.75pt 0in; border-top: none; border-right: 1pt solid; border=
+-bottom: none; border-left: none; text-align: left;">            <p style=
+=3D"line-height: 101%;"><span style=3D"color: #363635; font-size: 10pt; lin=
+e-height: 101%;">1</span></p>            </td>            <td valign=3D"bot=
+tom" style=3D"height: 15.35pt; width: 29.85pt; padding: 0.75pt 0.75pt 0in; =
+border-top: none; border-right: 1pt solid; border-bottom: none; border-left=
+: none; text-align: left;">            <p style=3D"line-height: 101%;">&nbs=
+p;</p>            </td>            <td valign=3D"bottom" style=3D"height: 1=
+5.35pt; width: 24.45pt; padding: 0.75pt 0.75pt 0in; border-top: none; borde=
+r-right: 1pt solid; border-bottom: none; border-left: none; text-align: lef=
+t;">            <p style=3D"line-height: 101%;"><span style=3D"color: #3636=
+35; font-size: 10pt; line-height: 101%;">2</span></p>            </td>     =
+       <td valign=3D"bottom" style=3D"height: 15.35pt; width: 20.5pt; paddi=
+ng: 0.75pt 0.75pt 0in; border-top: none; border-right: 1pt solid; border-bo=
+ttom: none; border-left: none; text-align: left;">            <p style=3D"l=
+ine-height: 101%;"><span style=3D"color: #363635; font-size: 10pt; line-hei=
+ght: 101%;">2</span></p>            </td>            <td valign=3D"bottom" =
+style=3D"height: 15.35pt; width: 22.3pt; padding: 0.75pt 0.75pt 0in; border=
+-top: none; border-right: 1pt solid; border-bottom: none; border-left: none=
+; text-align: left;">            <p style=3D"line-height: 101%;"><span styl=
+e=3D"color: #363635; font-size: 10pt; line-height: 101%;">1</span></p>     =
+       </td>            <td valign=3D"bottom" style=3D"height: 15.35pt; wid=
+th: 19.4pt; padding: 0.75pt 0.75pt 0in; border-top: none; border-right: 1pt=
+ solid; border-bottom: none; border-left: none; text-align: left;">        =
+    <p style=3D"line-height: 101%;"><span style=3D"color: #363635; font-siz=
+e: 10pt; line-height: 101%;">0</span></p>            </td>            <td v=
+align=3D"bottom" style=3D"height: 15.35pt; width: 34.2pt; padding: 0.75pt 0=
+.75pt 0in; border-top: none; border-right: 1pt solid; border-bottom: none; =
+border-left: none; text-align: left;">            <p style=3D"line-height: =
+101%;"><span style=3D"color: #363635; font-size: 10pt; line-height: 101%;">=
+1</span></p>            </td>            <td valign=3D"bottom" style=3D"hei=
+ght: 15.35pt; width: 49.5pt; padding: 0.75pt 0.75pt 0in; border-top: none; =
+border-right: 1pt solid; border-bottom: none; border-left: none; text-align=
+: left;">            <p style=3D"line-height: 101%;"><span style=3D"color: =
+#363635; font-size: 10pt; line-height: 101%;">2</span></p>            </td>=
+            <td valign=3D"bottom" style=3D"height: 15.35pt; width: 37.1pt; =
+padding: 0.75pt 0.75pt 0in; border-top: none; border-right: 1pt solid; bord=
+er-bottom: none; border-left: none; text-align: left;">            <p style=
+=3D"line-height: 101%;"><span style=3D"color: #363635; font-size: 10pt; lin=
+e-height: 101%;">1</span></p>            </td>            <td valign=3D"bot=
+tom" style=3D"height: 15.35pt; width: 47.4pt; padding: 0.75pt 0.75pt 0in; b=
+order-top: none; border-right: 1pt solid; border-bottom: none; border-left:=
+ none; text-align: left;">            <p style=3D"line-height: 101%;"><span=
+ style=3D"color: #363635; font-size: 10pt; line-height: 101%;">0</span></p>=
+            </td>            <td valign=3D"bottom" style=3D"height: 15.35pt=
+; width: 46.7pt; padding: 0.75pt 0.75pt 0in; border-top: none; border-right=
+: 1pt solid; border-bottom: none; border-left: none; text-align: left;">   =
+         <p style=3D"line-height: 101%;"><span style=3D"color: #363635; fon=
+t-size: 10pt; line-height: 101%;">0</span></p>            </td>            =
+<td valign=3D"bottom" style=3D"height: 15.35pt; width: 33.45pt; padding: 0.=
+75pt 0.75pt 0in; border-top: none; border-right: 1pt solid; border-bottom: =
+none; border-left: none; text-align: left;">            <p style=3D"line-he=
+ight: 101%;"><span style=3D"color: #363635; font-size: 10pt; line-height: 1=
+01%;">11</span></p>            </td>        </tr>        <tr style=3D"heigh=
+t: 15.35pt;">            <td valign=3D"bottom" style=3D"background: #dce6f1=
+; height: 15.35pt; width: 67.55pt; padding: 0.75pt 0.75pt 0in; border-top: =
+none; border-right: 1pt solid; border-bottom: none; border-left: none; text=
+-align: left;">            <p style=3D"line-height: 101%;"><strong><span st=
+yle=3D"color: #363635; font-size: 10pt; line-height: 101%;">Total</span></s=
+trong></p>            </td>            <td valign=3D"bottom" style=3D"backg=
+round: #dce6f1; height: 15.35pt; width: 36.9pt; padding: 0.75pt 0.75pt 0in;=
+ border-top: none; border-right: 1pt solid; border-bottom: 1pt solid; borde=
+r-left: none; text-align: left;">            <p style=3D"line-height: 101%;=
+"><strong><span style=3D"color: #363635; font-size: 10pt; line-height: 101%=
+;">101</span></strong></p>            </td>            <td valign=3D"bottom=
+" style=3D"background: #dce6f1; height: 15.35pt; width: 42.5pt; padding: 0.=
+75pt 0.75pt 0in; border-top: 1pt solid; border-right: 1pt solid; border-bot=
+tom: 1pt solid; border-left: none; text-align: left;">            <p style=
+=3D"line-height: 101%;"><strong><span style=3D"color: #363635; font-size: 1=
+0pt; line-height: 101%;">129</span></strong></p>            </td>          =
+  <td valign=3D"bottom" style=3D"background: #dce6f1; height: 15.35pt; widt=
+h: 29.85pt; padding: 0.75pt 0.75pt 0in; border-top: 1pt solid; border-right=
+: 1pt solid; border-bottom: 1pt solid; border-left: none; text-align: left;=
+">            <p style=3D"line-height: 101%;"><strong><span style=3D"color:=
+ #363635; font-size: 10pt; line-height: 101%;">109</span></strong></p>     =
+       </td>            <td valign=3D"bottom" style=3D"background: #dce6f1;=
+ height: 15.35pt; width: 24.45pt; padding: 0.75pt 0.75pt 0in; border-top: 1=
+pt solid; border-right: 1pt solid; border-bottom: 1pt solid; border-left: n=
+one; text-align: left;">            <p style=3D"line-height: 101%;"><strong=
+><span style=3D"color: #363635; font-size: 10pt; line-height: 101%;">117</s=
+pan></strong></p>            </td>            <td valign=3D"bottom" style=
+=3D"background: #dce6f1; height: 15.35pt; width: 20.5pt; padding: 0.75pt 0.=
+75pt 0in; border-top: 1pt solid; border-right: 1pt solid; border-bottom: 1p=
+t solid; border-left: none; text-align: left;">            <p style=3D"line=
+-height: 101%;"><strong><span style=3D"color: #363635; font-size: 10pt; lin=
+e-height: 101%;">147</span></strong></p>            </td>            <td va=
+lign=3D"bottom" style=3D"background: #dce6f1; height: 15.35pt; width: 22.3p=
+t; padding: 0.75pt 0.75pt 0in; border-top: 1pt solid; border-right: 1pt sol=
+id; border-bottom: 1pt solid; border-left: none; text-align: left;">       =
+     <p style=3D"line-height: 101%;"><strong><span style=3D"color: #363635;=
+ font-size: 10pt; line-height: 101%;">103</span></strong></p>            </=
+td>            <td valign=3D"bottom" style=3D"background: #dce6f1; height: =
+15.35pt; width: 19.4pt; padding: 0.75pt 0.75pt 0in; border-top: 1pt solid; =
+border-right: 1pt solid; border-bottom: 1pt solid; border-left: none; text-=
+align: left;">            <p style=3D"line-height: 101%;"><strong><span sty=
+le=3D"color: #363635; font-size: 10pt; line-height: 101%;">105</span></stro=
+ng></p>            </td>            <td valign=3D"bottom" style=3D"backgrou=
+nd: #dce6f1; height: 15.35pt; width: 34.2pt; padding: 0.75pt 0.75pt 0in; bo=
+rder-top: 1pt solid; border-right: 1pt solid; border-bottom: 1pt solid; bor=
+der-left: none; text-align: left;">            <p style=3D"line-height: 101=
+%;"><strong><span style=3D"color: #363635; font-size: 10pt; line-height: 10=
+1%;">106</span></strong></p>            </td>            <td valign=3D"bott=
+om" style=3D"background: #dce6f1; height: 15.35pt; width: 49.5pt; padding: =
+0.75pt 0.75pt 0in; border-top: 1pt solid; border-right: 1pt solid; border-b=
+ottom: 1pt solid; border-left: none; text-align: left;">            <p styl=
+e=3D"line-height: 101%;"><strong><span style=3D"color: #363635; font-size: =
+10pt; line-height: 101%;">108</span></strong></p>            </td>         =
+   <td valign=3D"bottom" style=3D"background: #dce6f1; height: 15.35pt; wid=
+th: 37.1pt; padding: 0.75pt 0.75pt 0in; border-top: 1pt solid; border-right=
+: 1pt solid; border-bottom: 1pt solid; border-left: none; text-align: left;=
+">            <p style=3D"line-height: 101%;"><strong><span style=3D"color:=
+ #363635; font-size: 10pt; line-height: 101%;">135</span></strong></p>     =
+       </td>            <td valign=3D"bottom" style=3D"background: #dce6f1;=
+ height: 15.35pt; width: 47.4pt; padding: 0.75pt 0.75pt 0in; border-top: 1p=
+t solid; border-right: 1pt solid; border-bottom: 1pt solid; border-left: no=
+ne; text-align: left;">            <p style=3D"line-height: 101%;"><strong>=
+<span style=3D"color: #363635; font-size: 10pt; line-height: 101%;">123</sp=
+an></strong></p>            </td>            <td valign=3D"bottom" style=3D=
+"background: #dce6f1; height: 15.35pt; width: 46.7pt; padding: 0.75pt 0.75p=
+t 0in; border-top: 1pt solid; border-right: 1pt solid; border-bottom: 1pt s=
+olid; border-left: none; text-align: left;">            <p style=3D"line-he=
+ight: 101%;"><strong><span style=3D"color: #363635; font-size: 10pt; line-h=
+eight: 101%;">94</span></strong></p>            </td>            <td valign=
+=3D"bottom" style=3D"background: #dce6f1; height: 15.35pt; width: 33.45pt; =
+padding: 0.75pt 0.75pt 0in; border-top: 1pt solid; border-right: 1pt solid;=
+ border-bottom: 1pt solid; border-left: none; text-align: left;">          =
+  <p style=3D"line-height: 101%;"><strong><span style=3D"color: #363635; fo=
+nt-size: 10pt; line-height: 101%;">1,377</span></strong></p>            </t=
+d>        </tr>    </tbody></table><p style=3D"line-height: 101%;"><span st=
+yle=3D"color: #363635;">&nbsp;</span></p><p style=3D"line-height: 101%;"><s=
+pan style=3D"color: #363635;">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;2025 Data (Ja=
+nuary and February)</span></p><table border=3D"0" cellspacing=3D"0" cellpad=
+ding=3D"0" width=3D"284" style=3D"width: 213pt;">    <tbody>        <tr sty=
+le=3D"height: 16.5pt;">            <td valign=3D"bottom" style=3D"backgroun=
+d: #dce6f1; height: 16.5pt; width: 116pt; padding: 0.75pt 0.75pt 0in; borde=
+r-top: none; border-right: 1pt solid; border-bottom: 1pt solid; border-left=
+: none; text-align: left;">            <p style=3D"line-height: 101%;"><str=
+ong><span style=3D"color: #363635;">Incident Type</span></strong></p>      =
+      </td>            <td valign=3D"bottom" style=3D"background: #dce6f1; =
+height: 16.5pt; width: 48pt; padding: 0.75pt 0.75pt 0in; border-top: 1pt so=
+lid; border-right: 1pt solid; border-bottom: 1pt solid; border-left: none; =
+text-align: left;">            <p style=3D"line-height: 101%;"><strong><spa=
+n style=3D"color: #363635;">January</span></strong></p>            </td>   =
+         <td valign=3D"bottom" style=3D"background: #dce6f1; height: 16.5pt=
+; width: 49pt; padding: 0.75pt 0.75pt 0in; border-top: 1pt solid; border-ri=
+ght: 1pt solid; border-bottom: 1pt solid; border-left: none; text-align: le=
+ft;">            <p style=3D"line-height: 101%;"><strong><span style=3D"col=
+or: #363635;">February</span></strong></p>            </td>        </tr>   =
+     <tr style=3D"height: 16.5pt;">            <td valign=3D"bottom" style=
+=3D"height: 16.5pt; width: 116pt; padding: 0.75pt 0.75pt 0in; border-top: n=
+one; border-right: 1pt solid; border-bottom: 1pt solid; border-left: 1pt so=
+lid; text-align: left;">            <p style=3D"line-height: 101%;"><span s=
+tyle=3D"color: #363635;">Overdose</span></p>            </td>            <t=
+d valign=3D"bottom" style=3D"height: 16.5pt; width: 48pt; padding: 0.75pt 0=
+.75pt 0in; border-top: none; border-right: 1pt solid; border-bottom: 1pt so=
+lid; border-left: none; text-align: left;">            <p style=3D"line-hei=
+ght: 101%;"><span style=3D"color: #363635;">90</span></p>            </td> =
+           <td valign=3D"bottom" style=3D"height: 16.5pt; width: 49pt; padd=
+ing: 0.75pt 0.75pt 0in; border-top: none; border-right: 1pt solid; border-b=
+ottom: 1pt solid; border-left: none; text-align: left;">            <p styl=
+e=3D"line-height: 101%;"><span style=3D"color: #363635;">111</span></p>    =
+        </td>        </tr>        <tr style=3D"height: 16.5pt;">           =
+ <td valign=3D"bottom" style=3D"height: 16.5pt; width: 116pt; padding: 0.75=
+pt 0.75pt 0in; border-top: none; border-right: 1pt solid; border-bottom: 1p=
+t solid; border-left: 1pt solid; text-align: left;">            <p style=3D=
+"line-height: 101%;"><span style=3D"color: #363635;">Overdose ALS Combined<=
+/span></p>            </td>            <td valign=3D"bottom" style=3D"heigh=
+t: 16.5pt; width: 48pt; padding: 0.75pt 0.75pt 0in; border-top: none; borde=
+r-right: 1pt solid; border-bottom: 1pt solid; border-left: none; text-align=
+: left;">            <p style=3D"line-height: 101%;"><span style=3D"color: =
+#363635;">2</span></p>            </td>            <td valign=3D"bottom" st=
+yle=3D"height: 16.5pt; width: 49pt; padding: 0.75pt 0.75pt 0in; border-top:=
+ none; border-right: 1pt solid; border-bottom: 1pt solid; border-left: none=
+; text-align: left;">            <p style=3D"line-height: 101%;"><span styl=
+e=3D"color: #363635;">1</span></p>            </td>        </tr>        <tr=
+ style=3D"height: 16.5pt;">            <td valign=3D"bottom" style=3D"heigh=
+t: 16.5pt; width: 116pt; padding: 0.75pt 0.75pt 0in; border-top: none; bord=
+er-right: 1pt solid; border-bottom: 1pt solid; border-left: 1pt solid; text=
+-align: left;">            <p style=3D"line-height: 101%;"><span style=3D"c=
+olor: #363635;">Overdose BLS Combined</span></p>            </td>          =
+  <td valign=3D"bottom" style=3D"height: 16.5pt; width: 48pt; padding: 0.75=
+pt 0.75pt 0in; border-top: none; border-right: 1pt solid; border-bottom: 1p=
+t solid; border-left: none; text-align: left;">            <p style=3D"line=
+-height: 101%;"><span style=3D"color: #363635;">0</span></p>            </t=
+d>            <td valign=3D"bottom" style=3D"height: 16.5pt; width: 49pt; p=
+adding: 0.75pt 0.75pt 0in; border-top: none; border-right: 1pt solid; borde=
+r-bottom: 1pt solid; border-left: none; text-align: left;">            <p s=
+tyle=3D"line-height: 101%;"><span style=3D"color: #363635;">1</span></p>   =
+         </td>        </tr>        <tr style=3D"height: 16.5pt;">          =
+  <td valign=3D"bottom" style=3D"height: 16.5pt; width: 116pt; padding: 0.7=
+5pt 0.75pt 0in; border-top: none; border-right: 1pt solid; border-bottom: 1=
+pt solid; border-left: 1pt solid; text-align: left;">            <p style=
+=3D"line-height: 101%;"><span style=3D"color: #363635;">Overdose Combined</=
+span></p>            </td>            <td valign=3D"bottom" style=3D"height=
+: 16.5pt; width: 48pt; padding: 0.75pt 0.75pt 0in; border-top: none; border=
+-right: 1pt solid; border-bottom: 1pt solid; border-left: none; text-align:=
+ left;">            <p style=3D"line-height: 101%;"><span style=3D"color: #=
+363635;">0</span></p>            </td>            <td valign=3D"bottom" sty=
+le=3D"height: 16.5pt; width: 49pt; padding: 0.75pt 0.75pt 0in; border-top: =
+none; border-right: 1pt solid; border-bottom: 1pt solid; border-left: none;=
+ text-align: left;">            <p style=3D"line-height: 101%;"><span style=
+=3D"color: #363635;">1</span></p>            </td>        </tr>        <tr =
+style=3D"height: 16.5pt;">            <td valign=3D"bottom" style=3D"backgr=
+ound: #dce6f1; height: 16.5pt; width: 116pt; padding: 0.75pt 0.75pt 0in; bo=
+rder-top: none; border-right: 1pt solid; border-bottom: 1pt solid; border-l=
+eft: 1pt solid; text-align: left;">            <p style=3D"line-height: 101=
+%;"><strong><span style=3D"color: #363635;">Total</span></strong></p>      =
+      </td>            <td valign=3D"bottom" style=3D"background: #dce6f1; =
+height: 16.5pt; width: 48pt; padding: 0.75pt 0.75pt 0in; border-top: none; =
+border-right: 1pt solid; border-bottom: 1pt solid; border-left: none; text-=
+align: left;">            <p style=3D"line-height: 101%;"><strong><span sty=
+le=3D"color: #363635;">92</span></strong></p>            </td>            <=
+td valign=3D"bottom" style=3D"background: #dce6f1; height: 16.5pt; width: 4=
+9pt; padding: 0.75pt 0.75pt 0in; border-top: none; border-right: 1pt solid;=
+ border-bottom: 1pt solid; border-left: none; text-align: left;">          =
+  <p style=3D"line-height: 101%;"><strong><span style=3D"color: #363635;">1=
+14</span></strong></p>            </td>        </tr>    </tbody></table><p =
+style=3D"line-height: 101%;"><span style=3D"color: #363635;">&nbsp;</span><=
+/p><p style=3D"margin-top: 0px; margin-bottom: 10px;"><span style=3D"font-s=
+ize: 14px; font-family: Arial;"> <span style=3D"color: #363635; font-size: =
+12pt; font-family: Cambria;">Pursuant to GP &sect; 4-362, you are entitled =
+to seek judicial review of this decision.</span><span style=3D"color: #3636=
+35; font-size: 11pt; font-family: Cambria, serif;"> </span><span style=3D"c=
+olor: #363635; font-size: 12pt; font-family: Cambria;">Alternatively, you m=
+ay file a request for mediation with the Public Access Ombudsman and, if th=
+e Ombudsman is unable to resolve the matter, you may subsequently seek a re=
+solution from the Public Information Act Compliance Board for those matters=
+ within the Compliance Board&rsquo;s jurisdiction. See GP &sect;&sect; 4-1A=
+-01 et seq. and 4-1B-01 et seq.&nbsp;</span></span></p><p style=3D"margin-t=
+op: 0px; margin-bottom: 10px;"><span style=3D"font-size: 14px; font-family:=
+ Arial;">Sincerely,</span></p><p style=3D"margin-top: 0px; margin-bottom: 1=
+0px;"><span style=3D"font-size: 14px; font-family: Arial;">Joel Moodie<br /=
+>Technology &amp; Information Services Office</span></p></div>
+<hr />
+<span style=3D"font-size: 10pt;"></span>
+<div style=3D"text-align: left;">To monitor the progress or update this req=
+uest please log into the&nbsp;<a href=3D"https://u8387778.ct.sendgrid.net/l=
+s/click?upn=3Du001.VEsWrlMiJDg0mXafq1mEXX7TFUKJwmsksDt24GiaQPV1-2F-2FPlN6as=
+n8fOTwVmLSn0oel0kzu6hlntklhsGKlmT6ACBeNL0hyPpkdWnHUbfGJMoZIibILKHrlb2Kcg-2B=
+kJO-WWk_yWLjitx6ecfj-2BN-2BPaj8rEu5XK2i9uUxOVJeZ0r-2FmYAgepxETwhimVOt8z9cCx=
+IrpIN9-2FvIxzzRazi3rvQ8OIAiPFTFRZ26I0VsdwULKa6e7C1Ber1it9VfT7VJ-2FFhAxw-2B2=
+JatD3sudDLgPLJDJiTJFifuC3yD13uTTlvFa4gq0eA4cR-2F57O4-2Fg5HMfYyTwsPCo9CoDHBb=
+vABafxXAzCkBLAqdvBKr5RfebimhJV127VVnPMZm6-2BR-2BAtS9BcwaB-2B5pDImIxk4Nt3iLZ=
+YvIhQ0Umh-2FQ-2BBWZkIDC099010-2FUUesNolkfuobkVRkfPNuPsiKv6tIwf0oeSwGNl4H1Wx=
+DMBZQft2yNibQ4F4DyZP4iMhV1gL3lQZ6Q1N20CoOcdfZ" target=3D"_blank" title=3D"F=
+ire & Emergency Medical Services Public Information Request Center">Fire & =
+Emergency Medical Services Public Information Request Center</a></div>
+<div><center><br />
+<img title=3D"GovQA logo" src=3D"https://uploads.mycusthelp.com/WEBQASUPPOR=
+T/PoweredByGovQALogo.png" alt=3D"GovQA logo" /></center></div>
+</div><img src=3D"https://u8387778.ct.sendgrid.net/wf/open?upn=3Du001.rhrVP=
+RLRoU5cY3eitr8gxpZwjGfg97j4tF0UYncqa29f8BjKsBT6yW6EK8vn1b63jX4i9M6SobN11lma=
+GtAjulengmC4GzGqKsDXbx2nBTXluhI5d-2BpYvfJpa5yPuWRNCBxwHtEZnBjNdRoKXf28aDKKX=
+fail0ow1HgescTZRlinjw0Jlc86F1-2Bi7CRwg8-2F1EVcKYiv-2BzTGA2Uq-2B5imK-2FADMJI=
+B8nBq6T-2FjHSfaq-2FFjjqksZUTRumr8xPOID-2FIay-2F-2BDagaRDefXU2VsmnsXTNW5aTav=
+LrN3j4IgTriY2tQfbCbLmmhjbZKzsu0M2yhTp60rg4WobiUVX1BIdc3jpi3BUyCzwXOygcfJPfo=
+16b-2FW6htT70tqo0ejPloeaX017" alt=3D"" width=3D"1" height=3D"1" border=3D"0=
+" style=3D"height:1px !important;width:1px !important;border-width:0 !impor=
+tant;margin-top:0 !important;margin-bottom:0 !important;margin-right:0 !imp=
+ortant;margin-left:0 !important;padding-top:0 !important;padding-bottom:0 !=
+important;padding-right:0 !important;padding-left:0 !important;"/></body></=
+html>
