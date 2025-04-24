@@ -321,7 +321,7 @@ releases <- osp_results |> html_elements('li.listing-item') |> html_text() |> as
 
 That worked, but it also exposed a couple of things, as that Warning message indicates: not all of the rows had a colon in them and the `title` column has a leading space. Let's fix both of those - we'll drop the rows where the title is NA.
 
-### Task 14: Clean up our elements more
+### Task 14: Clean up our elements more...
 
 **Task** Run the following code in the gray-colored codeblock below to get rid of releases without dates and trim the leading spaces. Just for fun, we'll convert the dates into actual dates, too:
 
