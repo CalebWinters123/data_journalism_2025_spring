@@ -20,7 +20,7 @@ Student_Responses <- read.csv("data/student_responses.csv") |> clean_names()
 
 Now, time to analyze
 
-1. Which news organizations are student listening to the most this past month?
+1Q. Which news organizations are student listening to the most this past month?
 
 ```{r}
 Student_Responses |> 
@@ -29,16 +29,20 @@ Student_Responses |>
   arrange(desc(count))
 ```
 
-Most of the sample has read the New York Times the most frequently during last month. 
+1Q. Most of the sample has read the New York Times the most frequently during last month. 
 
 
-2. Which race/ethnicity of students most frequently read the Times this past month?
+2Q. Which race/ethnicity of students most frequently read the Times this past month?
 
 ```{r}
 Student_Responses |>
-  filter(how_frequent, "New York Times")
+  filter(str_detect(most_frequent_news_organization, "New York Times")) |>
+  group_by(race_ethnicity) |>
+  summarise(count=n()) |>
+  arrange(desc(count))
 ```
 
+A2. In the sample, white journalism student have read the Times the most.
 
 
 This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
