@@ -1,0 +1,57 @@
+---
+title: Caleb's Data Analysis
+output: html_notebook
+---
+
+First, let's load our libraries
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(lubridate)
+```
+
+
+Next, let's load our data set and clean it up
+
+```{r}
+Student_Responses <- read.csv("data/student_responses.csv") |> clean_names()
+```
+
+Now, time to analyze
+
+1. Which news organizations are student listening to the most this past month?
+
+```{r}
+Student_Responses |> 
+  group_by(most_frequent_news_organization) |> 
+  summarise(count=n()) |>
+  arrange(desc(count))
+```
+
+Most of the sample has read the New York Times the most frequently during last month. 
+
+
+2. Which race/ethnicity of students most frequently read the Times this past month?
+
+```{r}
+Student_Responses |>
+  filter(how_frequent, "New York Times")
+```
+
+
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+plot(cars)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
