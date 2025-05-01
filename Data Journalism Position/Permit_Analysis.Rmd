@@ -1,0 +1,57 @@
+---
+title: "Caleb's Permit Analysis"
+output: html_notebook
+---
+
+To begin our analysis, let's first install our libraries.
+
+```{r}
+library(tidyverse) #To conduct our analysis
+library(janitor) #clean the data
+library(lubridate) #To clean and rearrange dates
+```
+
+Next, let's store and clean the data.
+
+```{r}
+Permit_data <- read_csv("data/PG_permit_data.csv") |> clean_names() |> mutate(across(zip_code, as.character))
+```
+
+Now, let's analyze the zip codes. When we count how many times each zip ccode appears, it will tell us how many permits were registered and where.
+
+```{r}
+Permit_data |> group_by(zip_code) |> summarise(count=n()) |> arrange(desc(count))
+```
+
+Since 2013 through 2022, there have been a total of 7,711 registered permits across these four zip codes.
+
+But this is interesting! Across 9 years, only a single permit was registered in the 20704 zip code. Let's find out more.
+
+Here is the case.
+
+```{r}
+Permit_data |> filter(str_detect(zip_code,"20704"))
+```
+
+Colonial Electric Company INC registered for a building permit in 2019. The permit goes into effect on October 17, 2019.
+
+The address, 4709 AMHERST COLLEGE PARK,MD 20704, is to a small family house six minutes away from campus.
+
+Let's see if the company has other permits involving buildings near campus.
+
+```{r}
+Permit_data |> filter(str_detect(case_name, "COLONIAL ELECTRIC COMPANY INC"))
+```
+The company only has one other listing. Its another building permit for a small family house near campus.
+
+Not super exciting, but it shows a trend. Look at this:
+
+```{r}
+Permit_data |> filter(str_detect(case_name, "electric"))
+Permit_data |> filter(str_detect(case_name, "Electric"))
+Permit_data |> filter(str_detect(case_name, "ELECTRIC"))
+```
+
+The first electric company helped us find all of these other electric companies with building permits for nearby houses in College Park.
+
+My journalistic hypothesis is that these electric companies could be competing with one another in the student housing market.
