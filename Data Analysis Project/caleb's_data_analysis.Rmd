@@ -11,14 +11,13 @@ library(janitor)
 library(lubridate)
 ```
 
-
 Next, let's load our data set and clean it up
 
 ```{r}
 Student_Responses <- read.csv("data/student_responses.csv") |> clean_names()
 ```
 
-Now, time to analyze
+Now, time to analyze.
 
 1Q. Which news organizations are student listening to the most this past month?
 
@@ -29,8 +28,7 @@ Student_Responses |>
   arrange(desc(count))
 ```
 
-1Q. Most of the sample has read the New York Times the most frequently during last month. 
-
+A1. Most of the students in this sample have been reading the New York Times the more frequently last month than any other news organization.
 
 2Q. Which race/ethnicity of students most frequently read the Times this past month?
 
@@ -44,18 +42,30 @@ Student_Responses |>
 
 A2. In the sample, white journalism student have read the Times the most.
 
-
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
-
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+Q3. For those reading the Times, how frequent have they been reading?
 
 ```{r}
-plot(cars)
+Student_Responses |> filter(str_detect(most_frequent_news_organization, "New York Times")) |> group_by(how_frequent) |> summarise(count=n()) |> arrange(desc(count))
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+A3. During last month, 6 students read the New York Times everyday. 3 students read the Times 6 - 8 times a week. Only 1 student read the Times once a week.
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+Q4. What were these students' reasons for sticking with the Times? Do any of them share reasons?
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+```{r}
+Why_1 <- Student_Responses |> filter(str_detect(most_frequent_news_organization, "New York Times"))
+```
 
+A4. Most students wanted to learn about recent events. The second most popular reason was that the students trusted the Times with ethical reporting. The third most popular reasons was that the students enjoyed the expertise from the Times.
+
+Q5. The New York Times is these students' most frequently read new organization. But what did they say was their favorite news organization. How long do these spent reading it weekly?
+
+```{r}
+NYT_most_frequent |> select(name,favorite_news_organization, how_much)
+```
+
+A5. Only two students reported the New York Times as their favorite. Other students reported other news organizations as their favorite such as the AP, Baltimore Banner, Washington Post, Vox, ect.
+
+Rachel Lawrence reads her favorite news orgaization, the Associated Press, 6 - 8 a week.
+
+Theodore Rose reads his favorite news organization, Bellingcat, 2 - 4 times a week.
