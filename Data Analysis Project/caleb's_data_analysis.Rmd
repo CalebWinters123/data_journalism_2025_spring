@@ -30,6 +30,8 @@ Student_Responses |>
 
 A1. Most of the students in this sample have been reading the New York Times the more frequently last month than any other news organization.
 
+During the month of April, many big political events occurred. New York Times is know for covering a wide range of political matters.
+
 2Q. Which race/ethnicity of students most frequently read the Times this past month?
 
 ```{r}
