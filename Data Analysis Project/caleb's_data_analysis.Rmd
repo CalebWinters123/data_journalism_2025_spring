@@ -14,7 +14,7 @@ library(lubridate)
 Next, let's load our data set and clean it up
 
 ```{r}
-Student_Responses <- read.csv("data/student_responses.csv") |> clean_names()
+Student_Responses <- read.csv("data/Students.csv") |> clean_names()
 ```
 
 Now, time to analyze.
@@ -38,8 +38,18 @@ During the month of April, many big political events occurred. New York Times is
 Student_Responses |>
   filter(str_detect(most_frequent_news_organization, "New York Times")) |>
   group_by(race_ethnicity) |>
-  summarise(count=n()) |>
-  arrange(desc(count))
+   summarise(count=n()) |>
+    arrange(desc(count))
+```
+
+Now, who chose differently:
+
+```{r}
+Student_Responses |>
+filter(!str_detect(most_frequent_news_organization, "New York Times")) |>
+group_by(race_ethnicity) |>
+summarise(count=n()) |>
+arrange(desc(count))
 ```
 
 A2. In the sample, white journalism student have read the Times the most.
@@ -55,7 +65,7 @@ A3. During last month, 6 students read the New York Times everyday. 3 students r
 Q4. What were these students' reasons for sticking with the Times? Do any of them share reasons?
 
 ```{r}
-Why_1 <- Student_Responses |> filter(str_detect(most_frequent_news_organization, "New York Times"))
+NYT_most_frequent <- Student_Responses |> mutate(recent_events = str_detect(why_1, "recent current events")) |> mutate(ethics = str_detect(why_1, "ethical")) |> mutate(expertise = str_detect(why_1, "expertise"))
 ```
 
 A4. Most students wanted to learn about recent events. The second most popular reason was that the students trusted the Times with ethical reporting. The third most popular reasons was that the students enjoyed the expertise from the Times.
@@ -68,6 +78,6 @@ NYT_most_frequent |> select(name,favorite_news_organization, how_much)
 
 A5. Only two students reported the New York Times as their favorite. Other students reported other news organizations as their favorite such as the AP, Baltimore Banner, Washington Post, Vox, ect.
 
-Rachel Lawrence reads her favorite news orgaization, the Associated Press, 6 - 8 a week.
+Ex 1. : Rachel Lawrence reads her favorite news organization, the Associated Press, 6 - 8 a week.
 
-Theodore Rose reads his favorite news organization, Bellingcat, 2 - 4 times a week.
+Ex 2. :Theodore Rose reads his favorite news organization, Bellingcat, 2 - 4 times a week.
